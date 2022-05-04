@@ -1,0 +1,294 @@
+<h2 class="mat-2"><strong>Detalle de Transacción</strong></h2>
+<a [routerLink]="['/sales']" fxLayout="row wrap" fxLayoutAlign="none center">
+    <mat-icon mat-list-icon routerLinkActive="icon">arrow_back_ios</mat-icon>
+    <h4 routerLinkActive="active">Regresar</h4>
+</a>
+<br>
+<br>
+<br>
+<section fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap.xs="200px" fxLayoutGap.sm="200px">
+    <section fxLayout="row" fxLayoutGap="40px">
+        <mat-icon style="color: green; font-size: 50px;">local_atm</mat-icon>
+        <section fxLayout="column">
+            <h5>Monto y moneda</h5>
+            <span class="head">101.60</span>
+        </section>
+    </section>
+    <section fxLayout="row" fxLayoutGap="40px" style="border-left: 1px solid rgb(192, 189, 189);padding-left: 20px;">
+        <mat-icon style="color: green; font-size: 50px;">calendar_month</mat-icon>
+        <section fxLayout="column">
+            <h5>Fecha de Transacción</h5>
+            <span class="head">22/04/2022 - 23:16:44</span>
+        </section>
+    </section>
+    <section fxLayout="row" fxLayoutGap="40px" style="border-left: 1px solid rgb(192, 189, 189);padding-left: 20px;">
+        <mat-icon style="color: green; font-size: 50px;">laptop</mat-icon>
+        <section fxLayout="column">
+            <h5>Canal</h5>
+            <span class="head">Web</span>
+        </section>
+    </section>
+    <section fxLayout="row" fxLayoutGap="40px" style="border-left: 1px solid rgb(192, 189, 189);padding-left: 20px;">
+        <mat-icon style="color: green; font-size: 50px;">credit_card</mat-icon>
+        <section fxLayout="column">
+            <h5>Tarjeta</h5>
+            <span class="head">428082*********0016</span>
+        </section>
+    </section>
+    <section fxLayout="row" fxLayoutGap="10px" style="border-left: 1px solid rgb(192, 189, 189);padding-left: 20px;">
+        <h5>Transacción</h5>
+        <h4>995221127674867</h4>
+        <h5>-</h5>
+        <h5 [ngStyle]="true ? { 'color': 'green'} : {'color': 'red'}">Liquidado</h5>
+    </section>
+</section>
+<br>
+<mat-divider></mat-divider>
+<br>
+<section>
+    <h3>Detalle de la Transacción</h3>
+</section>
+<section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column">
+    <section fxFlex>
+        <section fxLayout="column">
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Código de Comercio :</h5>
+                <span class="detail" fxFlex>650179476</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Código de Asociado :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>MCC del Comercio :</h5>
+                <span class="detail" fxFlex>5300</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>ID Único de Transacción :</h5>
+                <span class="detail" fxFlex>9952211127684867</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Moneda :</h5>
+                <span class="detail" fxFlex>PEN</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Fecha y Hora de la Autorización :</h5>
+                <span class="detail" fxFlex>650179476</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Nombre de la Tarjetahabiente :</h5>
+                <span class="detail" fxFlex>Mariangela Pacheco</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>E-mail de la Tarjetahabiente :</h5>
+                <span class="detail" fxFlex>mariangelapacheco75@gmail.com</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Código de Acción :</h5>
+                <span class="detail" fxFlex>000</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Motivo de Denegación :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Fecha de Anulación :</h5>
+                <span class="detail" fxFlex>650179476</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Número de Cuotas :</h5>
+                <span class="detail" fxFlex>0</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>COF Registro</h5>
+                <span class="detail" fxFlex>No</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Token ID</h5>
+                <span class="detail" fxFlex>mariangelapacheco75@gmail.com</span>
+            </section>
+        </section>
+    </section>
+    <section fxFlex>
+        <section fxLayout="column">
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Nombre de Comercio :</h5>
+                <span class="detail" fxFlex>DELIVERY ISM GO</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Nombre de Asociado :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Número de Pedido :</h5>
+                <span class="detail" fxFlex>4566387402</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Estado :</h5>
+                <span class="detail" fxFlex>Liquidado</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Importe de Pedido :</h5>
+                <span class="detail" fxFlex>101.60</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>PAN :</h5>
+                <span class="detail" fxFlex>428080******0016</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Emisor :</h5>
+                <span class="detail" fxFlex>BCP</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Código de Autorización</h5>
+                <span class="detail" fxFlex>007388</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>ECI</h5>
+                <span class="detail" fxFlex>07</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Canal</h5>
+                <span class="detail" fxFlex>Web</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Importe Liquidado</h5>
+                <span class="detail" fxFlex>101.60</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Monto de Cuota</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>COF Venta</h5>
+                <span class="detail" fxFlex>Si</span>
+            </section>
+        </section>
+    </section>
+</section>
+<br>
+<mat-divider></mat-divider>
+<br>
+<section>
+    <h3>Cuotas sin intereses</h3>
+</section>
+<section fxLayout="row">
+    <section fxFlex>
+        <section fxLayout="column">
+            <section fxLayout="row">
+                <h5 fxFlex>Tipo :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+            <section fxLayout="row">
+                <h5 fxFlex>Porcentaje :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+            <section fxLayout="row">
+                <h5 fxFlex>Importe :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+        </section>
+    </section>
+    <section fxFlex></section>
+</section>
+<br>
+<mat-divider></mat-divider>
+<br>
+<section>
+    <h3>Descuentos pos servicios</h3>
+</section>
+<section fxLayout="row">
+    <section fxFlex>
+        <section fxLayout="column">
+            <section fxLayout="row">
+                <h5 fxFlex>Nombre del Programa :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+            <section fxLayout="row">
+                <h5 fxFlex>Descuento Aplicado :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+            <section fxLayout="row">
+                <h5 fxFlex>Importe sin Descuento :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+            <section fxLayout="row">
+                <h5 fxFlex>Importe con Descuento :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+        </section>
+    </section>
+    <section fxFlex></section>
+</section>
+<br>
+<mat-divider></mat-divider>
+<br>
+<section>
+    <h3>Canje de puntos o millas</h3>
+</section>
+<section fxLayout="row">
+    <section fxFlex>
+        <section fxLayout="column">
+            <section fxLayout="row">
+                <h5 fxFlex>Nombre del Programa :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+            <section fxLayout="row">
+                <h5 fxFlex>Cantidad de puntos o millas canjeadas :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+            <section fxLayout="row">
+                <h5 fxFlex>ID de tx :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+            <section fxLayout="row">
+                <h5 fxFlex>Autorización :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+            <section fxLayout="row">
+                <h5 fxFlex>Importe en PEN :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+        </section>
+    </section>
+    <section fxFlex></section>
+</section>
+<br>
+<mat-divider></mat-divider>
+<br>
+<section>
+    <h3>Dirección de envío</h3>
+</section>
+<section fxLayout="row">
+    <section fxFlex>
+        <section fxLayout="column">
+            <section fxLayout="row">
+                <h5 fxFlex>Departamento :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+            <section fxLayout="row">
+                <h5 fxFlex>Distrito :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+            <section fxLayout="row">
+                <h5 fxFlex>Teléfono :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+            <section fxLayout="row">
+                <h5 fxFlex>Provincia :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+            <section fxLayout="row">
+                <h5 fxFlex>Dirección :</h5>
+                <span class="detail" fxFlex>---</span>
+            </section>
+        </section>
+    </section>
+    <section fxFlex></section>
+</section>
+<br>
+<mat-divider></mat-divider>
+<br>
+<section>
+    <h3>Historia de transacción</h3>
+</section>

@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: Roboto;
+    font-weight: 400;
+    overflow-y: hidden;
+}
+
+.mat-form-field {
+    font-size: 14px;
+}
+
+.mat-form-field-infix {
+    padding: .3em 0 !important;
+    border-top: .22132em solid transparent !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0.6em 0 0.6em 0 !important;
+}
+
+.mat-stroked-button {
+    line-height: 30px !important;
+}
+
+.mat-raised-button {
+    line-height: 30px !important;
+}
+
+.section-container {
+    position: relative;
+    min-height: 700px;
+    max-height: 100%;
+    overflow: auto;
+}
+
+h2 {
+    color: green;
+    margin-bottom: 10px;
+}

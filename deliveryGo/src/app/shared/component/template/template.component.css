@@ -1,0 +1,38 @@
+mat-sidenav-container {
+    height: 100%;
+}
+
+mat-sidenav,
+mat-sidenav-content {
+    padding: 0px;
+}
+
+mat-sidenav {
+    width: 200px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a h4,
+h5 {
+    color: black;
+}
+
+ul {
+    list-style: none;
+}
+
+.active {
+    color: green;
+}
+
+.icon {
+    color: green;
+}
+
+.footer {
+    position: relative;
+    clear: both;
+}

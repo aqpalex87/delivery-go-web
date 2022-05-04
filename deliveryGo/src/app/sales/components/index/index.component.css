@@ -1,0 +1,53 @@
+h2 {
+    color: green;
+    margin-bottom: 10px;
+}
+
+::ng-deep .mat-form-field-outline-start {
+    border-radius: 28px 0 0 28px !important;
+    min-width: 28px !important;
+}
+
+::ng-deep .mat-form-field-outline-end {
+    border-radius: 0 28px 28px 0 !important;
+}
+
+::ng-deep .mat-form-field-flex {
+    align-items: center !important;
+}
+
+.mat-form-field {
+    min-width: 150px;
+    padding-top: 20px;
+}
+
+button {
+    background-color: green;
+    color: white;
+    border-radius: 28px !important;
+}
+
+table {
+    width: 100%;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}
+
+.mat-header-cell {
+    font-size: 14px;
+    font-weight: bold !important;
+    color: black;
+}
+
+.filter {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.my-form {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 80px;
+}

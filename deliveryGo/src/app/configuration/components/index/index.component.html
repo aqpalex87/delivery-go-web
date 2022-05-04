@@ -1,0 +1,35 @@
+<h2 class="mat-2"><strong>Mis configuraciones</strong></h2>
+<span><strong>Realizar cambios en tus datos.</strong></span>
+<br>
+<br>
+<br>
+<mat-divider></mat-divider>
+<section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="space-between center">
+    <h3>Datos de la cuenta</h3>
+    <button type="button" mat-stroked-button [routerLink]="['/configuration/edit-config']">
+        <mat-icon>edit</mat-icon>
+        Modificar datos
+    </button>
+</section>
+<br>
+<br>
+<section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column">
+    <section fxFlex>
+        <section fxLayout="column">
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Número de cuenta bancaria :</h5>
+                <span class="detail" fxFlex>0839829832982389823</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Tipo de Banco :</h5>
+                <span class="detail" fxFlex>BCP</span>
+            </section>
+            <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
+                <h5 fxFlex>Tipo de cuenta :</h5>
+                <span class="detail" fxFlex>Tipo de cuenta básica</span>
+            </section>
+        </section>
+    </section>
+    <section fxFlex></section>
+    <section fxFlex></section>
+</section>

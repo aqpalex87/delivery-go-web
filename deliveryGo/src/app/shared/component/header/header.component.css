@@ -1,0 +1,29 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+mat-toolbar {
+    font-family: Roboto;
+    background-color: #0000;
+    height: 70px;
+    /* position: sticky; */
+    position: -webkit-sticky;
+    /* top: 0; */
+    z-index: 1000;
+}
+
+p {
+    font-size: 14px !important;
+    margin: 0px;
+    padding: 0px;
+}
+
+.head {
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+.user {
+    font-size: 14px;
+    font-weight: bold;
+}

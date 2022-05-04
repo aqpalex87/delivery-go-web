@@ -1,0 +1,182 @@
+<h2 class="mat-2"><strong>Mis ventas</strong></h2>
+<span><strong>Consulta aquí todas las transacciones del comercio.</strong></span>
+<br>
+<br>
+<br>
+<section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="row" fxLayoutGap.xs="20px" fxLayoutGap.sm="20px" fxLayoutAlign="space-between center">
+    <section fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="row" fxLayout="row" fxLayoutGap.xs="10px" fxLayoutGap.sm="10px" fxLayoutGap="20px">
+        <button mat-stroked-button>Hoy</button>
+        <button mat-stroked-button>Esta semana</button>
+        <button mat-stroked-button>Este mes</button>
+    </section>
+    <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column" fxLayoutAlign="baseline center">
+        <section style="text-align: center;">
+            <span class="filter">Desde</span>
+            <mat-form-field class="my-form" [ngStyle.xs]="{'padding-top': 0}" [ngStyle.sm]="{'padding-top': 0}" appearance="outline">
+                <input matInput [matDatepicker]="pickerA" readonly>
+                <mat-datepicker-toggle matSuffix [for]="pickerA"></mat-datepicker-toggle>
+                <mat-datepicker #pickerA></mat-datepicker>
+            </mat-form-field>
+        </section>
+        <section style="text-align: center;">
+            <span class="filter">Hasta</span>
+            <mat-form-field class="my-form" [ngStyle.xs]="{'padding-top': 0}" [ngStyle.sm]="{'padding-top': 0}" appearance="outline">
+                <input matInput [matDatepicker]="pickerB" readonly>
+                <mat-datepicker-toggle matSuffix [for]="pickerB"></mat-datepicker-toggle>
+                <mat-datepicker #pickerB></mat-datepicker>
+            </mat-form-field>
+        </section>
+        <button type="button" mat-stroked-button>
+                <mat-icon>search</mat-icon>
+                Buscar
+        </button>
+    </section>
+</section>
+<br>
+<br>
+<mat-divider></mat-divider>
+<br>
+<section fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="space-between center">
+    <mat-form-field fxFlex="10" appearance="outline">
+        <input matInput placeholder="Nro Pedido">
+    </mat-form-field>
+    <mat-form-field fxFlex="10" appearance="outline">
+        <input matInput placeholder="Cliente">
+    </mat-form-field>
+    <mat-form-field fxFlex="10" appearance="outline">
+        <mat-label>Moneda</mat-label>
+        <mat-select>
+            <mat-option>PEN</mat-option>
+            <mat-option>USD</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field fxFlex="10" appearance="outline">
+        <input matInput placeholder="Importe pedido">
+    </mat-form-field>
+    <mat-form-field fxFlex="10" appearance="outline">
+        <mat-label>Marca</mat-label>
+        <mat-select>
+            <mat-option>Visa</mat-option>
+            <mat-option>Master</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field fxFlex="10" appearance="outline">
+        <mat-label>F. Transacción</mat-label>
+        <input matInput [matDatepicker]="picker" readonly>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field fxFlex="10" appearance="outline">
+        <mat-label>F. Liquidación</mat-label>
+        <input matInput [matDatepicker]="picker1" readonly>
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field fxFlex="10" appearance="outline">
+        <mat-label>Estado</mat-label>
+        <mat-select>
+            <mat-option>Liquidado</mat-option>
+            <mat-option>Denegado</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button type="button" mat-stroked-button>
+        <mat-icon>search</mat-icon>
+        Buscar
+    </button>
+</section>
+<br>
+<br>
+<mat-divider></mat-divider>
+<br>
+<div style="text-align: right;">
+    <button mat-raised-button color="primary">
+        <mat-icon>download</mat-icon>Exportar
+    </button>
+</div>
+<br>
+<br>
+<section class="section-container">
+    <section>
+        <mat-paginator [length]="dataSource.data.length" showFirstLastButtons [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
+    </section>
+    <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
+        <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+                </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                </mat-checkbox>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="nroPedido">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+                Nro Pedido
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.nroPedido}} </td>
+        </ng-container>
+        <ng-container matColumnDef="cliente">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+                Cliente
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.cliente}} </td>
+        </ng-container>
+        <ng-container matColumnDef="moneda">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by moneda">
+                Moneda
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.moneda}} </td>
+        </ng-container>
+        <ng-container matColumnDef="importePedido">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by importePedido">
+                Importe Pedido
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.importePedido}} </td>
+        </ng-container>
+        <ng-container matColumnDef="descuentoAplicado">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by descuentoAplicado">
+                Descuento aplicado
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.descuentoAplicado}} </td>
+        </ng-container>
+        <ng-container matColumnDef="importePuntos">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by importePuntos">
+                Importe por puntos o millas
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.importePuntos}} </td>
+        </ng-container>
+        <ng-container matColumnDef="marca">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by marca">
+                Marca
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.marca}} </td>
+        </ng-container>
+        <ng-container matColumnDef="fechaTransaccion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by fechaTransaccion">
+                Fecha de Transacción
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.fechaTransaccion| date:'dd/MM/YYYY h:mm:ss a'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="fechaLiquidacion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by fechaLiquidacion">
+                Fecha de Liquidación
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.fechaLiquidacion| date:'dd/MM/YYYY h:mm:ss a'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by estado">
+                Estado
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+        </ng-container>
+        <ng-container matColumnDef="acciones">
+            <th class="table" mat-header-cell *matHeaderCellDef mat-sort-header></th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-raised-button type="button" color="primary" (click)="detalleMovimiento(element)"><mat-icon>visibility</mat-icon>&nbsp;Ver</button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</section>

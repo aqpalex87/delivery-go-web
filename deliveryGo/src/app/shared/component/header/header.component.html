@@ -1,0 +1,23 @@
+<mat-toolbar>
+    <span><strong>Delivery Go Pay</strong></span> &nbsp;&nbsp;
+    <button type="button" (click)="verMenu()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" style="margin-left: 150px;">
+        <mat-icon style="color: white;">menu</mat-icon>
+      </button>
+    <span class="example-spacer"></span>
+    <section fxLayout="row" fxLayoutGap="40px">
+        <mat-icon style="color: green; font-size: 50px;">person_outline</mat-icon>
+        <section fxLayout="column">
+            <span class="user">Erick Arrasco Guevara</span>
+            <span class="head">Lunes 7 de Septiembre</span>
+        </section>
+    </section>
+    <button type="button" mat-button [matMenuTriggerFor]="menu" style="margin-left: 120px;">
+        <mat-icon style="color: white;">account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button type="button" mat-menu-item>
+            <mat-icon>logout</mat-icon>
+            <span>Cerrar Sesión</span>   
+        </button>
+    </mat-menu>
+</mat-toolbar>
