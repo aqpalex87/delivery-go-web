@@ -10,7 +10,7 @@ const routes: Routes = [
     component: TemplateComponent,
     children: [
       {
-        path: 'v-home',
+        path: 'index',
         component: IndexComponent,
       },
       {
@@ -19,7 +19,7 @@ const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: 'v-home',
+        redirectTo: 'index',
       },
     ],
   },

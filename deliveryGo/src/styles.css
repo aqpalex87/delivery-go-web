@@ -1,4 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: montserrat;
+    src: url('./assets/font/montserrat.woff') format('woff');
+}
+
+@font-face {
+    font-family: montserrat-reg;
+    src: url('./assets/font/montserrat-reg.woff') format('woff');
+}
+
+@font-face {
+    font-family: montserrat-med;
+    src: url('./assets/font/montserrat-med.woff') format('woff');
+}
+
+* {
+    font-family: 'montserrat-reg';
+}
 
 html,
 body {
@@ -6,8 +23,7 @@ body {
 }
 
 body {
-    font-family: Roboto;
-    font-weight: 400;
+    font-family: 'montserrat-reg';
     overflow-y: hidden;
 }
 

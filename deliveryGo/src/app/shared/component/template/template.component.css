@@ -8,16 +8,13 @@ mat-sidenav-content {
 }
 
 mat-sidenav {
-    width: 200px;
+    width: 299px;
 }
 
 a {
-    text-decoration: none;
-}
-
-a h4,
-h5 {
     color: black;
+    font-size: 20px;
+    text-decoration: none;
 }
 
 ul {
@@ -25,11 +22,11 @@ ul {
 }
 
 .active {
-    color: green;
+    color: #00C354;
 }
 
 .icon {
-    color: green;
+    color: #00C354;
 }
 
 .footer {

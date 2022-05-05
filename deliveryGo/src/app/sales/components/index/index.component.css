@@ -1,5 +1,5 @@
 h2 {
-    color: green;
+    color: #00C354;
     margin-bottom: 10px;
 }
 
@@ -13,6 +13,7 @@ h2 {
 }
 
 ::ng-deep .mat-form-field-flex {
+    height: 35.88px;
     align-items: center !important;
 }
 
@@ -22,7 +23,7 @@ h2 {
 }
 
 button {
-    background-color: green;
+    background-color: #00C354;
     color: white;
     border-radius: 28px !important;
 }
@@ -37,13 +38,12 @@ th.mat-sort-header-sorted {
 
 .mat-header-cell {
     font-size: 14px;
-    font-weight: bold !important;
     color: black;
 }
 
 .filter {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .my-form {

@@ -89,7 +89,7 @@
 <mat-divider></mat-divider>
 <br>
 <div style="text-align: right;">
-    <button mat-raised-button color="primary">
+    <button mat-raised-button style="background-color: #0085FF; color: white;" (click)="export()">
         <mat-icon>download</mat-icon>Exportar
     </button>
 </div>
@@ -102,11 +102,11 @@
     <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
         <ng-container matColumnDef="select">
             <th mat-header-cell *matHeaderCellDef>
-                <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+                <mat-checkbox color="primary" (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
                 </mat-checkbox>
             </th>
             <td mat-cell *matCellDef="let row">
-                <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                <mat-checkbox color="primary" (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
                 </mat-checkbox>
             </td>
         </ng-container>
@@ -173,7 +173,7 @@
         <ng-container matColumnDef="acciones">
             <th class="table" mat-header-cell *matHeaderCellDef mat-sort-header></th>
             <td mat-cell *matCellDef="let element">
-                <button mat-raised-button type="button" color="primary" (click)="detalleMovimiento(element)"><mat-icon>visibility</mat-icon>&nbsp;Ver</button>
+                <button mat-raised-button type="button" style="background-color: #0085FF; color: white;" (click)="viewDetail(element)"><mat-icon>visibility</mat-icon>&nbsp;Ver</button>
             </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

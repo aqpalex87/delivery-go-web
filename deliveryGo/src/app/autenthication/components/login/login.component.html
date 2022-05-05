@@ -1,0 +1,35 @@
+<section fxLayout="column" fxLayoutAlign="center center" style="height: 100%;">
+    <br>
+    <div style="width: 360px; background-color: white;">
+        <br>
+        <br>
+        <div style="width: 439px; margin: auto;">
+            <section fxLayoutAlign="center center">
+                <img src="./assets/img/delivery_go.png" width="50%" alt="logo_minedu">
+            </section>
+            <h3 style="text-align: center;">¡ Bienvenido !</h3>
+            <form [formGroup]="form" fxLayout="column" (ngSubmit)="ingresar();">
+                <br>
+                <mat-form-field fxFlexFill appearance="outline">
+                    <input type="text" matInput placeholder="ingrese correo" autocomplete="off" formControlName="userName">
+                    <mat-icon matPrefix>mail_outline</mat-icon>
+                </mat-form-field>
+                <mat-form-field fxFlexFill appearance="outline">
+                    <input type="password" matInput placeholder="ingrese contraseña" autocomplete="off" formControlName="password">
+                    <mat-icon matPrefix>lock_open</mat-icon>
+                </mat-form-field>
+                <br>
+                <mat-checkbox color="primary" fxLayoutAlign="end" matPrefix>Recordar ingreso</mat-checkbox>
+                <br>
+                <button mat-raised-button type="submit" style="background-color: #00C455; color: white;">
+                    <mat-icon matPrefix style="color: white; ">login</mat-icon>&nbsp;&nbsp;
+                    <span style="color: white; ">INGRESAR</span>
+                </button>
+                <h5 style="text-align: center;"><a style="color: #00C455;">Olvide contraseña</a>
+                </h5>
+            </form>
+        </div>
+        <br>
+        <br>
+    </div>
+</section>

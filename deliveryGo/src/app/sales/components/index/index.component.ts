@@ -5,7 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
-
+import * as XLSX from 'xlsx';
 export interface Ventas {
   nroPedido: number;
   cliente: string;
@@ -96,11 +96,21 @@ export class IndexComponent implements AfterViewInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.nroPedido + 1}`;
   }
 
-  detalleMovimiento(row: any) {
+  viewDetail(row: any) {
     this.router.navigate([
       '/sales/detail',
       row.nroPedido,
     ]);
   }
 
+  export(){
+    this.convertDataToExcel(data);
+  }
+
+  convertDataToExcel(dataExport: Ventas[]){
+    const workbook: XLSX.WorkBook = XLSX.utils.book_new();
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(dataExport);
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'movimientos');
+    XLSX.writeFile(workbook, 'export_file.xlsx');
+  }
 }
