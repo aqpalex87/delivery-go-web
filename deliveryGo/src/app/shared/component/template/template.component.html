@@ -8,7 +8,7 @@
             <img style="padding: 10px;" src="./assets/img/delivery_go.png" width="50%" alt="logo_minedu">
         </section>
         <br>
-        <mat-list>
+        <mat-list style="height: 72%;">
             <mat-list-item>
                 <a [routerLink]="['/sales']" fxLayout="row wrap" fxLayoutAlign="center center">
                     <mat-icon mat-list-icon routerLinkActive="icon">shopping_cart</mat-icon>
@@ -32,7 +32,7 @@
         </mat-list>
     </mat-sidenav>
     <mat-sidenav-content style="background-color: white;">
-        <div style="padding: 20px;">
+        <div style="padding: 20px;padding-bottom: 200px;">
             <router-outlet></router-outlet>
         </div>
     </mat-sidenav-content>

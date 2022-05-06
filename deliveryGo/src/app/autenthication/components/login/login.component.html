@@ -11,12 +11,12 @@
             <form [formGroup]="form" fxLayout="column" (ngSubmit)="ingresar();">
                 <br>
                 <mat-form-field fxFlexFill appearance="outline">
-                    <input type="text" matInput placeholder="ingrese correo" autocomplete="off" formControlName="userName">
                     <mat-icon matPrefix>mail_outline</mat-icon>
+                    <input style="height:61px !important;" type="text" matInput placeholder="ingrese correo" autocomplete="off" formControlName="userName">
                 </mat-form-field>
                 <mat-form-field fxFlexFill appearance="outline">
-                    <input type="password" matInput placeholder="ingrese contraseña" autocomplete="off" formControlName="password">
                     <mat-icon matPrefix>lock_open</mat-icon>
+                    <input style="height:61px !important;" type="password" matInput placeholder="ingrese contraseña" autocomplete="off" formControlName="password">
                 </mat-form-field>
                 <br>
                 <mat-checkbox color="primary" fxLayoutAlign="end" matPrefix>Recordar ingreso</mat-checkbox>

@@ -3,87 +3,89 @@
 <br>
 <br>
 <br>
-<section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="row" fxLayoutGap.xs="20px" fxLayoutGap.sm="20px" fxLayoutAlign="space-between center">
-    <section fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="row" fxLayout="row" fxLayoutGap.xs="10px" fxLayoutGap.sm="10px" fxLayoutGap="20px">
-        <button mat-stroked-button>Hoy</button>
-        <button mat-stroked-button>Esta semana</button>
-        <button mat-stroked-button>Este mes</button>
-    </section>
-    <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column" fxLayoutAlign="baseline center">
-        <section style="text-align: center;">
-            <span class="filter">Desde</span>
-            <mat-form-field class="my-form" [ngStyle.xs]="{'padding-top': 0}" [ngStyle.sm]="{'padding-top': 0}" appearance="outline">
-                <input matInput [matDatepicker]="pickerA" readonly>
-                <mat-datepicker-toggle matSuffix [for]="pickerA"></mat-datepicker-toggle>
-                <mat-datepicker #pickerA></mat-datepicker>
-            </mat-form-field>
+<form [formGroup]="form">
+    <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="row" fxLayoutGap.xs="20px" fxLayoutGap.sm="20px" fxLayoutAlign="space-between center">
+        <section fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="row" fxLayout="row" fxLayoutGap.xs="10px" fxLayoutGap.sm="10px" fxLayoutGap="20px">
+            <button mat-stroked-button type="button" [ngClass]="this.form.controls.hoy.value?'active':'desactive'" (click)="activeButtonFilter('day')">Hoy</button>
+            <button mat-stroked-button type="button" [ngClass]="this.form.controls.estaSemana.value?'active':'desactive'" (click)="activeButtonFilter('week')">Esta Semana</button>
+            <button mat-stroked-button type="button" [ngClass]="this.form.controls.esteMes.value?'active':'desactive'" (click)="activeButtonFilter('month')">Este Mes</button>
         </section>
-        <section style="text-align: center;">
-            <span class="filter">Hasta</span>
-            <mat-form-field class="my-form" [ngStyle.xs]="{'padding-top': 0}" [ngStyle.sm]="{'padding-top': 0}" appearance="outline">
-                <input matInput [matDatepicker]="pickerB" readonly>
-                <mat-datepicker-toggle matSuffix [for]="pickerB"></mat-datepicker-toggle>
-                <mat-datepicker #pickerB></mat-datepicker>
-            </mat-form-field>
-        </section>
-        <button type="button" mat-stroked-button>
+        <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column" fxLayoutAlign="baseline center">
+            <section style="text-align: center;">
+                <span class="filter">Desde</span>
+                <mat-form-field class="my-form" [ngStyle.xs]="{'padding-top': 0}" [ngStyle.sm]="{'padding-top': 0}" appearance="outline">
+                    <input matInput [matDatepicker]="pickerA" readonly>
+                    <mat-datepicker-toggle matSuffix [for]="pickerA"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerA></mat-datepicker>
+                </mat-form-field>
+            </section>
+            <section style="text-align: center;">
+                <span class="filter">Hasta</span>
+                <mat-form-field class="my-form" [ngStyle.xs]="{'padding-top': 0}" [ngStyle.sm]="{'padding-top': 0}" appearance="outline">
+                    <input matInput [matDatepicker]="pickerB" readonly>
+                    <mat-datepicker-toggle matSuffix [for]="pickerB"></mat-datepicker-toggle>
+                    <mat-datepicker #pickerB></mat-datepicker>
+                </mat-form-field>
+            </section>
+            <button type="button" mat-stroked-button>
                 <mat-icon>search</mat-icon>
                 Buscar
         </button>
+        </section>
     </section>
-</section>
-<br>
-<br>
-<mat-divider></mat-divider>
-<br>
-<section fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="space-between center">
-    <mat-form-field fxFlex="10" appearance="outline">
-        <input matInput placeholder="Nro Pedido">
-    </mat-form-field>
-    <mat-form-field fxFlex="10" appearance="outline">
-        <input matInput placeholder="Cliente">
-    </mat-form-field>
-    <mat-form-field fxFlex="10" appearance="outline">
-        <mat-label>Moneda</mat-label>
-        <mat-select>
-            <mat-option>PEN</mat-option>
-            <mat-option>USD</mat-option>
-        </mat-select>
-    </mat-form-field>
-    <mat-form-field fxFlex="10" appearance="outline">
-        <input matInput placeholder="Importe pedido">
-    </mat-form-field>
-    <mat-form-field fxFlex="10" appearance="outline">
-        <mat-label>Marca</mat-label>
-        <mat-select>
-            <mat-option>Visa</mat-option>
-            <mat-option>Master</mat-option>
-        </mat-select>
-    </mat-form-field>
-    <mat-form-field fxFlex="10" appearance="outline">
-        <mat-label>F. Transacción</mat-label>
-        <input matInput [matDatepicker]="picker" readonly>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field fxFlex="10" appearance="outline">
-        <mat-label>F. Liquidación</mat-label>
-        <input matInput [matDatepicker]="picker1" readonly>
-        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-        <mat-datepicker #picker1></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field fxFlex="10" appearance="outline">
-        <mat-label>Estado</mat-label>
-        <mat-select>
-            <mat-option>Liquidado</mat-option>
-            <mat-option>Denegado</mat-option>
-        </mat-select>
-    </mat-form-field>
-    <button type="button" mat-stroked-button>
+    <br>
+    <br>
+    <mat-divider></mat-divider>
+    <br>
+    <section fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="space-between center">
+        <mat-form-field fxFlex="10" appearance="outline">
+            <input matInput placeholder="Nro Pedido">
+        </mat-form-field>
+        <mat-form-field fxFlex="10" appearance="outline">
+            <input matInput placeholder="Cliente">
+        </mat-form-field>
+        <mat-form-field fxFlex="10" appearance="outline">
+            <mat-label>Moneda</mat-label>
+            <mat-select>
+                <mat-option>PEN</mat-option>
+                <mat-option>USD</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field fxFlex="10" appearance="outline">
+            <input matInput placeholder="Importe pedido">
+        </mat-form-field>
+        <mat-form-field fxFlex="10" appearance="outline">
+            <mat-label>Marca</mat-label>
+            <mat-select>
+                <mat-option>Visa</mat-option>
+                <mat-option>Master</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field fxFlex="10" appearance="outline">
+            <mat-label>F. Transacción</mat-label>
+            <input matInput [matDatepicker]="picker" readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field fxFlex="10" appearance="outline">
+            <mat-label>F. Liquidación</mat-label>
+            <input matInput [matDatepicker]="picker1" readonly>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field fxFlex="10" appearance="outline">
+            <mat-label>Estado</mat-label>
+            <mat-select>
+                <mat-option>Liquidado</mat-option>
+                <mat-option>Denegado</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button type="button" mat-stroked-button>
         <mat-icon>search</mat-icon>
         Buscar
     </button>
-</section>
+    </section>
+</form>
 <br>
 <br>
 <mat-divider></mat-divider>

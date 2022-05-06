@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
   }
 
   ingresar() {
-    console.log(this.form.value);
-    this.router.navigate(['sales/index']);
+    //console.log(this.form.value);
+    this.router.navigate(['home/index']);
   }
 
 }

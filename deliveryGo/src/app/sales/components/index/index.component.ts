@@ -6,6 +6,7 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import * as XLSX from 'xlsx';
+import { FormBuilder, FormGroup } from '@angular/forms';
 export interface Ventas {
   nroPedido: number;
   cliente: string;
@@ -50,7 +51,17 @@ export class IndexComponent implements AfterViewInit {
   selection = new SelectionModel<Ventas>(true, []);
   resultsLength = 16;
 
-  constructor(private _liveAnnouncer: LiveAnnouncer, private router: Router) { }
+  p: number = 1;
+  collection: Ventas[] = data;  
+  form: FormGroup;
+
+  constructor(private _liveAnnouncer: LiveAnnouncer, private router: Router, private _formBuilder: FormBuilder) {
+    this.form = this._formBuilder.group({
+      hoy: [true],
+      estaSemana: [false],
+      esteMes: [false]
+    });
+   }
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -101,6 +112,28 @@ export class IndexComponent implements AfterViewInit {
       '/sales/detail',
       row.nroPedido,
     ]);
+  }
+
+  activeButtonFilter(description:string){
+    switch(description){
+      case 'day':{
+        this.form.controls.hoy.setValue(true);
+        this.form.controls.estaSemana.setValue(false);
+        this.form.controls.esteMes.setValue(false);
+        break;
+      }
+      case 'week':{
+        this.form.controls.hoy.setValue(false);
+        this.form.controls.estaSemana.setValue(true);
+        this.form.controls.esteMes.setValue(false);
+        break;
+      }
+      case 'month':{
+        this.form.controls.hoy.setValue(false);
+        this.form.controls.estaSemana.setValue(false);
+        this.form.controls.esteMes.setValue(true);
+      }
+    }
   }
 
   export(){

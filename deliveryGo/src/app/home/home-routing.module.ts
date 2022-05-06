@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './components/index/index.component';
-import { TemplateComponent } from '../shared/component/template/template.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: TemplateComponent,
+    component: IndexComponent,
     children: [
       {
-        path: 'v-casa',
+        path: 'index',
         component: IndexComponent,
       },
       {
         path: '**',
-        redirectTo: 'home/v-casa',
+        redirectTo: 'index',
       },
     ],
   },
