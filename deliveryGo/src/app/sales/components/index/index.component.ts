@@ -1,5 +1,5 @@
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -44,16 +44,22 @@ const data: Ventas[] = [
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent implements AfterViewInit {
+export class IndexComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ['select', 'nroPedido', 'cliente', 'moneda', 'importePedido', 'descuentoAplicado', 'importePuntos', 'marca', 'fechaTransaccion', 'fechaLiquidacion', 'estado', 'acciones'];
-  dataSource = new MatTableDataSource(data);
+  dataSource = new MatTableDataSource<Ventas>(data);
   selection = new SelectionModel<Ventas>(true, []);
   resultsLength = 16;
 
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
   p: number = 1;
-  collection: Ventas[] = data;  
+  collection: Ventas[] = data;
   form: FormGroup;
+
+  currentPage = 1;
+  itemsPerPage = 10;
 
   constructor(private _liveAnnouncer: LiveAnnouncer, private router: Router, private _formBuilder: FormBuilder) {
     this.form = this._formBuilder.group({
@@ -61,12 +67,13 @@ export class IndexComponent implements AfterViewInit {
       estaSemana: [false],
       esteMes: [false]
     });
-   }
+  }
 
-  @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  ngOnInit(): void {
+  }
 
   ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.paginator._intl.itemsPerPageLabel = 'Elementos por página';
     this.paginator._intl.nextPageLabel = 'Página Siguiente';
@@ -114,21 +121,21 @@ export class IndexComponent implements AfterViewInit {
     ]);
   }
 
-  activeButtonFilter(description:string){
-    switch(description){
-      case 'day':{
+  activeButtonFilter(description: string) {
+    switch (description) {
+      case 'day': {
         this.form.controls.hoy.setValue(true);
         this.form.controls.estaSemana.setValue(false);
         this.form.controls.esteMes.setValue(false);
         break;
       }
-      case 'week':{
+      case 'week': {
         this.form.controls.hoy.setValue(false);
         this.form.controls.estaSemana.setValue(true);
         this.form.controls.esteMes.setValue(false);
         break;
       }
-      case 'month':{
+      case 'month': {
         this.form.controls.hoy.setValue(false);
         this.form.controls.estaSemana.setValue(false);
         this.form.controls.esteMes.setValue(true);
@@ -136,14 +143,26 @@ export class IndexComponent implements AfterViewInit {
     }
   }
 
-  export(){
+  export() {
     this.convertDataToExcel(data);
   }
 
-  convertDataToExcel(dataExport: Ventas[]){
+  convertDataToExcel(dataExport: Ventas[]) {
     const workbook: XLSX.WorkBook = XLSX.utils.book_new();
     const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(dataExport);
     XLSX.utils.book_append_sheet(workbook, worksheet, 'movimientos');
     XLSX.writeFile(workbook, 'export_file.xlsx');
+  }
+
+  cambioPagina(paginator: any) {
+    
+  }
+
+  nextPage() {
+    this.paginator.nextPage();
+  }
+
+  previousPage() {
+    this.paginator.previousPage();
   }
 }

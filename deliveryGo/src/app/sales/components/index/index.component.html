@@ -6,24 +6,24 @@
 <form [formGroup]="form">
     <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="row" fxLayoutGap.xs="20px" fxLayoutGap.sm="20px" fxLayoutAlign="space-between center">
         <section fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="row" fxLayout="row" fxLayoutGap.xs="10px" fxLayoutGap.sm="10px" fxLayoutGap="20px">
-            <button mat-stroked-button type="button" [ngClass]="this.form.controls.hoy.value?'active':'desactive'" (click)="activeButtonFilter('day')">Hoy</button>
-            <button mat-stroked-button type="button" [ngClass]="this.form.controls.estaSemana.value?'active':'desactive'" (click)="activeButtonFilter('week')">Esta Semana</button>
-            <button mat-stroked-button type="button" [ngClass]="this.form.controls.esteMes.value?'active':'desactive'" (click)="activeButtonFilter('month')">Este Mes</button>
+            <button mat-stroked-button class="filter" type="button" [ngClass]="this.form.controls.hoy.value?'activated':'deactivate'" (click)="activeButtonFilter('day')">Hoy</button>
+            <button mat-stroked-button class="filter" type="button" [ngClass]="this.form.controls.estaSemana.value?'activated':'deactivate'" (click)="activeButtonFilter('week')">Esta Semana</button>
+            <button mat-stroked-button class="filter" type="button" [ngClass]="this.form.controls.esteMes.value?'activated':'deactivate'" (click)="activeButtonFilter('month')">Este Mes</button>
         </section>
         <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column" fxLayoutAlign="baseline center">
             <section style="text-align: center;">
                 <span class="filter">Desde</span>
                 <mat-form-field class="my-form" [ngStyle.xs]="{'padding-top': 0}" [ngStyle.sm]="{'padding-top': 0}" appearance="outline">
-                    <input matInput [matDatepicker]="pickerA" readonly>
-                    <mat-datepicker-toggle matSuffix [for]="pickerA"></mat-datepicker-toggle>
+                    <input matInput [matDatepicker]="pickerA" readonly autocomplete="off">
+                    <mat-datepicker-toggle matPrefix [for]="pickerA"></mat-datepicker-toggle>
                     <mat-datepicker #pickerA></mat-datepicker>
                 </mat-form-field>
             </section>
             <section style="text-align: center;">
                 <span class="filter">Hasta</span>
                 <mat-form-field class="my-form" [ngStyle.xs]="{'padding-top': 0}" [ngStyle.sm]="{'padding-top': 0}" appearance="outline">
-                    <input matInput [matDatepicker]="pickerB" readonly>
-                    <mat-datepicker-toggle matSuffix [for]="pickerB"></mat-datepicker-toggle>
+                    <input matInput [matDatepicker]="pickerB" readonly autocomplete="off">
+                    <mat-datepicker-toggle matPrefix [for]="pickerB"></mat-datepicker-toggle>
                     <mat-datepicker #pickerB></mat-datepicker>
                 </mat-form-field>
             </section>
@@ -39,10 +39,10 @@
     <br>
     <section fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="space-between center">
         <mat-form-field fxFlex="10" appearance="outline">
-            <input matInput placeholder="Nro Pedido">
+            <input matInput placeholder="Nro Pedido" autocomplete="off">
         </mat-form-field>
         <mat-form-field fxFlex="10" appearance="outline">
-            <input matInput placeholder="Cliente">
+            <input matInput placeholder="Cliente" autocomplete="off">
         </mat-form-field>
         <mat-form-field fxFlex="10" appearance="outline">
             <mat-label>Moneda</mat-label>
@@ -52,7 +52,7 @@
             </mat-select>
         </mat-form-field>
         <mat-form-field fxFlex="10" appearance="outline">
-            <input matInput placeholder="Importe pedido">
+            <input matInput placeholder="Importe pedido" autocomplete="off">
         </mat-form-field>
         <mat-form-field fxFlex="10" appearance="outline">
             <mat-label>Marca</mat-label>
@@ -63,13 +63,13 @@
         </mat-form-field>
         <mat-form-field fxFlex="10" appearance="outline">
             <mat-label>F. Transacción</mat-label>
-            <input matInput [matDatepicker]="picker" readonly>
+            <input matInput [matDatepicker]="picker" readonly autocomplete="off">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
         <mat-form-field fxFlex="10" appearance="outline">
             <mat-label>F. Liquidación</mat-label>
-            <input matInput [matDatepicker]="picker1" readonly>
+            <input matInput [matDatepicker]="picker1" readonly autocomplete="off">
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>
@@ -99,7 +99,7 @@
 <br>
 <section class="section-container">
     <section>
-        <mat-paginator [length]="dataSource.data.length" showFirstLastButtons [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
+        <mat-paginator [length]="dataSource.data.length" [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
     </section>
     <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
         <ng-container matColumnDef="select">
@@ -181,4 +181,34 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <div style="text-align: right;">
+        <section *ngFor="let item of dataSource.data|angularPaginator:{ itemsPerPage: this.itemsPerPage, currentPage: currentPage }; let i = index">
+        </section>
+        <br />
+        <nav angularPaginator [forceEllipses]="true" [rotate]="true" [maxSize]="5" aria-label="Pagination Component" #paginator="angularPaginator" (pageChange)="currentPage = $event">
+            <ng-container *ngIf="paginator.pages['length'] !== 0">
+                <ul class="pagination pagination-sm">
+
+                    <li [ngClass]="{disabled: paginator.currentPage === paginator.firstPage}" (click)="cambioPagina(paginator)">
+                        <a style="padding: 0px; margin: 0px;border-radius: 5px;" (click)="paginator.toPreviousPage(); previousPage();">
+                            <mat-icon>navigate_before</mat-icon>
+                        </a>
+                    </li>
+
+                    <li class="page-item" *ngFor="let page of paginator.pages" [ngClass]="{ active: page['active'] }" (click)="cambioPagina(paginator)">
+                        <a class="page-link" (click)="!page['active'] && paginator.setCurrentPage(page['number'])">
+                            <span class="visually-hidden" *ngIf="!page['active']">{{ page['text'] }}</span>
+                            <span class="visually-hidden" *ngIf="page['active']">{{ page['text'] }}</span>
+                        </a>
+                    </li>
+
+                    <li [ngClass]="{disabled: paginator.currentPage === paginator.lastPage}" (click)="cambioPagina(paginator);">
+                        <a style="padding: 0px; margin: 0px;border-radius: 5px;" (click)="paginator.toNextPage(); nextPage();">
+                            <mat-icon>navigate_next</mat-icon>
+                        </a>
+                    </li>
+                </ul>
+            </ng-container>
+        </nav>
+    </div>
 </section>
