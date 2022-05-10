@@ -1,110 +1,109 @@
-<h2 class="mat-2"><strong>Detalle de Transacción</strong></h2>
-<a [routerLink]="['/sales']" fxLayout="row wrap" fxLayoutAlign="none center">
-    <mat-icon mat-list-icon routerLinkActive="icon">arrow_back_ios</mat-icon>
-    <h4 routerLinkActive="active">Regresar</h4>
-</a>
+<h2 class="mat-2"><strong>Detalle de la transacción</strong></h2>
+<br>
+<section fxLayoutAlign="baseline center">
+    <mat-icon class="icon-back" routerLinkActive="icon">arrow_back_ios</mat-icon>
+    <span class="span-back" [routerLink]="['/sales']" routerLinkActive="active">Regresar</span>
+</section>
 <br>
 <br>
 <br>
 <section fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap.xs="200px" fxLayoutGap.sm="200px">
     <section fxLayout="row" fxLayoutGap="40px">
-        <mat-icon style="color: green; font-size: 50px;">local_atm</mat-icon>
+        <mat-icon class="icon">local_atm</mat-icon>
         <section fxLayout="column">
-            <h5>Monto y moneda</h5>
+            <h5 class="head-title">Monto y moneda</h5>
             <span class="head">101.60</span>
         </section>
     </section>
-    <section fxLayout="row" fxLayoutGap="40px" style="border-left: 1px solid rgb(192, 189, 189);padding-left: 20px;">
-        <mat-icon style="color: green; font-size: 50px;">calendar_month</mat-icon>
+    <section class="border-section" fxLayout="row" fxLayoutGap="40px">
+        <mat-icon class="icon">calendar_month</mat-icon>
         <section fxLayout="column">
-            <h5>Fecha de Transacción</h5>
+            <h5 class="head-title">Fecha de Transacción</h5>
             <span class="head">22/04/2022 - 23:16:44</span>
         </section>
     </section>
-    <section fxLayout="row" fxLayoutGap="40px" style="border-left: 1px solid rgb(192, 189, 189);padding-left: 20px;">
-        <mat-icon style="color: green; font-size: 50px;">laptop</mat-icon>
+    <section class="border-section" fxLayout="row" fxLayoutGap="40px">
+        <mat-icon class="icon">laptop</mat-icon>
         <section fxLayout="column">
-            <h5>Canal</h5>
+            <h5 class="head-title">Canal</h5>
             <span class="head">Web</span>
         </section>
     </section>
-    <section fxLayout="row" fxLayoutGap="40px" style="border-left: 1px solid rgb(192, 189, 189);padding-left: 20px;">
-        <mat-icon style="color: green; font-size: 50px;">credit_card</mat-icon>
+    <section class="border-section" fxLayout="row" fxLayoutGap="40px">
+        <img src="./assets/img/visa.svg" alt="visa">
         <section fxLayout="column">
-            <h5>Tarjeta</h5>
+            <h5 class="head-title">Tarjeta</h5>
             <span class="head">428082*********0016</span>
         </section>
     </section>
-    <section fxLayout="row" fxLayoutGap="10px" style="border-left: 1px solid rgb(192, 189, 189);padding-left: 20px;">
-        <h5>Transacción</h5>
-        <h4>995221127674867</h4>
-        <h5>-</h5>
-        <h5 [ngStyle]="true ? { 'color': 'green'} : {'color': 'red'}">Liquidado</h5>
+    <section class="border-section" fxLayout="row" fxLayoutGap="10px">
+        <span class="span-operation">Transacción 995221127674867 - </span>
+        <span class="span-status" [ngStyle]="true ? { 'color': '#00C354'} : {'color': '#FF544A'}">Liquidado</span>
     </section>
 </section>
 <br>
 <mat-divider></mat-divider>
 <br>
-<section>
-    <h3>Detalle de la Transacción</h3>
+<section class="section-title">
+    <span class="span-title">Detalle de la Transacción</span>
 </section>
 <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column">
     <section fxFlex>
         <section fxLayout="column">
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Código de Comercio :</h5>
+                <h5 class="detail-title" fxFlex>Código de Comercio :</h5>
                 <span class="detail" fxFlex>650179476</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Código de Asociado :</h5>
+                <h5 class="detail-title" fxFlex>Código de Asociado :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>MCC del Comercio :</h5>
+                <h5 class="detail-title" fxFlex>MCC del Comercio :</h5>
                 <span class="detail" fxFlex>5300</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>ID Único de Transacción :</h5>
+                <h5 class="detail-title" fxFlex>ID Único de Transacción :</h5>
                 <span class="detail" fxFlex>9952211127684867</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Moneda :</h5>
+                <h5 class="detail-title" fxFlex>Moneda :</h5>
                 <span class="detail" fxFlex>PEN</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Fecha y Hora de la Autorización :</h5>
+                <h5 class="detail-title" fxFlex>Fecha y Hora de la Autorización :</h5>
                 <span class="detail" fxFlex>650179476</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Nombre de la Tarjetahabiente :</h5>
+                <h5 class="detail-title" fxFlex>Nombre de la Tarjetahabiente :</h5>
                 <span class="detail" fxFlex>Mariangela Pacheco</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>E-mail de la Tarjetahabiente :</h5>
+                <h5 class="detail-title" fxFlex>E-mail de la Tarjetahabiente :</h5>
                 <span class="detail" fxFlex>mariangelapacheco75@gmail.com</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Código de Acción :</h5>
+                <h5 class="detail-title" fxFlex>Código de Acción :</h5>
                 <span class="detail" fxFlex>000</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Motivo de Denegación :</h5>
+                <h5 class="detail-title" fxFlex>Motivo de Denegación :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Fecha de Anulación :</h5>
+                <h5 class="detail-title" fxFlex>Fecha de Anulación :</h5>
                 <span class="detail" fxFlex>650179476</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Número de Cuotas :</h5>
+                <h5 class="detail-title" fxFlex>Número de Cuotas :</h5>
                 <span class="detail" fxFlex>0</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>COF Registro</h5>
+                <h5 class="detail-title" fxFlex>COF Registro</h5>
                 <span class="detail" fxFlex>No</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Token ID</h5>
+                <h5 class="detail-title" fxFlex>Token ID</h5>
                 <span class="detail" fxFlex>mariangelapacheco75@gmail.com</span>
             </section>
         </section>
@@ -112,55 +111,55 @@
     <section fxFlex>
         <section fxLayout="column">
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Nombre de Comercio :</h5>
+                <h5 class="detail-title" fxFlex>Nombre de Comercio :</h5>
                 <span class="detail" fxFlex>DELIVERY ISM GO</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Nombre de Asociado :</h5>
+                <h5 class="detail-title" fxFlex>Nombre de Asociado :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Número de Pedido :</h5>
+                <h5 class="detail-title" fxFlex>Número de Pedido :</h5>
                 <span class="detail" fxFlex>4566387402</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Estado :</h5>
+                <h5 class="detail-title" fxFlex>Estado :</h5>
                 <span class="detail" fxFlex>Liquidado</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Importe de Pedido :</h5>
+                <h5 class="detail-title" fxFlex>Importe de Pedido :</h5>
                 <span class="detail" fxFlex>101.60</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>PAN :</h5>
+                <h5 class="detail-title" fxFlex>PAN :</h5>
                 <span class="detail" fxFlex>428080******0016</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Emisor :</h5>
+                <h5 class="detail-title" fxFlex>Emisor :</h5>
                 <span class="detail" fxFlex>BCP</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Código de Autorización</h5>
+                <h5 class="detail-title" fxFlex>Código de Autorización</h5>
                 <span class="detail" fxFlex>007388</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>ECI</h5>
+                <h5 class="detail-title" fxFlex>ECI</h5>
                 <span class="detail" fxFlex>07</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Canal</h5>
+                <h5 class="detail-title" fxFlex>Canal</h5>
                 <span class="detail" fxFlex>Web</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Importe Liquidado</h5>
+                <h5 class="detail-title" fxFlex>Importe Liquidado</h5>
                 <span class="detail" fxFlex>101.60</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>Monto de Cuota</h5>
+                <h5 class="detail-title" fxFlex>Monto de Cuota</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
             <section fxLayout="row" fxLayout.xs="column" fxLayout.sm="column">
-                <h5 fxFlex>COF Venta</h5>
+                <h5 class="detail-title" fxFlex>COF Venta</h5>
                 <span class="detail" fxFlex>Si</span>
             </section>
         </section>
@@ -169,22 +168,22 @@
 <br>
 <mat-divider></mat-divider>
 <br>
-<section>
-    <h3>Cuotas sin intereses</h3>
+<section class="section-title">
+    <span class="span-title">Cuotas sin intereses</span>
 </section>
 <section fxLayout="row">
     <section fxFlex>
         <section fxLayout="column">
             <section fxLayout="row">
-                <h5 fxFlex>Tipo :</h5>
+                <h5 class="detail-title" fxFlex>Tipo :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
             <section fxLayout="row">
-                <h5 fxFlex>Porcentaje :</h5>
+                <h5 class="detail-title" fxFlex>Porcentaje :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
             <section fxLayout="row">
-                <h5 fxFlex>Importe :</h5>
+                <h5 class="detail-title" fxFlex>Importe :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
         </section>
@@ -194,26 +193,26 @@
 <br>
 <mat-divider></mat-divider>
 <br>
-<section>
-    <h3>Descuentos pos servicios</h3>
+<section class="section-title">
+    <span class="span-title">Descuentos pos servicios</span>
 </section>
 <section fxLayout="row">
     <section fxFlex>
         <section fxLayout="column">
             <section fxLayout="row">
-                <h5 fxFlex>Nombre del Programa :</h5>
+                <h5 class="detail-title" fxFlex>Nombre del Programa :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
             <section fxLayout="row">
-                <h5 fxFlex>Descuento Aplicado :</h5>
+                <h5 class="detail-title" fxFlex>Descuento Aplicado :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
             <section fxLayout="row">
-                <h5 fxFlex>Importe sin Descuento :</h5>
+                <h5 class="detail-title" fxFlex>Importe sin Descuento :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
             <section fxLayout="row">
-                <h5 fxFlex>Importe con Descuento :</h5>
+                <h5 class="detail-title" fxFlex>Importe con Descuento :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
         </section>
@@ -223,30 +222,30 @@
 <br>
 <mat-divider></mat-divider>
 <br>
-<section>
-    <h3>Canje de puntos o millas</h3>
+<section class="section-title">
+    <span class="span-title">Canje de puntos o millas</span>
 </section>
 <section fxLayout="row">
     <section fxFlex>
         <section fxLayout="column">
             <section fxLayout="row">
-                <h5 fxFlex>Nombre del Programa :</h5>
+                <h5 class="detail-title" fxFlex>Nombre del Programa :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
             <section fxLayout="row">
-                <h5 fxFlex>Cantidad de puntos o millas canjeadas :</h5>
+                <h5 class="detail-title" fxFlex>Cantidad de puntos o millas canjeadas :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
             <section fxLayout="row">
-                <h5 fxFlex>ID de tx :</h5>
+                <h5 class="detail-title" fxFlex>ID de tx :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
             <section fxLayout="row">
-                <h5 fxFlex>Autorización :</h5>
+                <h5 class="detail-title" fxFlex>Autorización :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
             <section fxLayout="row">
-                <h5 fxFlex>Importe en PEN :</h5>
+                <h5 class="detail-title" fxFlex>Importe en PEN :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
         </section>
@@ -256,30 +255,30 @@
 <br>
 <mat-divider></mat-divider>
 <br>
-<section>
-    <h3>Dirección de envío</h3>
+<section class="section-title">
+    <span class="span-title">Dirección de envío</span>
 </section>
 <section fxLayout="row">
     <section fxFlex>
         <section fxLayout="column">
             <section fxLayout="row">
-                <h5 fxFlex>Departamento :</h5>
+                <h5 class="detail-title" fxFlex>Departamento :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
             <section fxLayout="row">
-                <h5 fxFlex>Distrito :</h5>
+                <h5 class="detail-title" fxFlex>Distrito :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
             <section fxLayout="row">
-                <h5 fxFlex>Teléfono :</h5>
+                <h5 class="detail-title" fxFlex>Teléfono :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
             <section fxLayout="row">
-                <h5 fxFlex>Provincia :</h5>
+                <h5 class="detail-title" fxFlex>Provincia :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
             <section fxLayout="row">
-                <h5 fxFlex>Dirección :</h5>
+                <h5 class="detail-title" fxFlex>Dirección :</h5>
                 <span class="detail" fxFlex>---</span>
             </section>
         </section>
@@ -289,6 +288,66 @@
 <br>
 <mat-divider></mat-divider>
 <br>
-<section>
-    <h3>Historia de transacción</h3>
+<section class="section-title">
+    <span class="span-title">Historia de transacción</span>
+</section>
+<section class="section-container">
+    <section hidden>
+        <mat-paginator [length]="dataSource.data.length" [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
+    </section>
+    <table mat-table [dataSource]="dataSource" matSort matSortActive="nroPedido" matSortDirection="desc" (matSortChange)="announceSortChange($event)">
+        <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                <h4>Estado</h4>
+            </th>
+            <td mat-cell *matCellDef="let element" [ngClass]="element.estado=='Liquidado'?'liquidado':'autorizado'"> {{element.estado}} </td>
+        </ng-container>
+        <ng-container matColumnDef="fechaEnvio">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                <h4>Fecha de evento</h4>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.fechaEvento| date:'dd/MM/YYYY h:mm:ss a'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="cliente">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                <h4>Cliente</h4>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.cliente}} </td>
+        </ng-container>
+        <ng-container matColumnDef="montoTransaccion">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                <h4>Monto de transacción</h4>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.montoTransaccion}} </td>
+        </ng-container>>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <div style="text-align: right;">
+        <section *ngFor="let item of dataSource.data|angularPaginator:{ itemsPerPage: this.itemsPerPage, currentPage: currentPage }; let i = index">
+        </section>
+        <br />
+        <nav angularPaginator [forceEllipses]="true" [rotate]="true" [maxSize]="5" aria-label="Pagination Component" #paginator="angularPaginator" (pageChange)="currentPage = $event">
+            <ng-container *ngIf="paginator.pages['length'] !== 0">
+                <ul class="pagination pagination-sm">
+                    <li [ngClass]="{disabled: paginator.currentPage === paginator.firstPage}">
+                        <a style="padding: 0px; margin: 0px;border-radius: 5px;" (click)="paginator.toPreviousPage(); previousPage();">
+                            <mat-icon>navigate_before</mat-icon>
+                        </a>
+                    </li>
+                    <li style="cursor: pointer;" class="page-item" *ngFor="let page of paginator.pages" [ngClass]="{ active: page['active'] }" (click)="cambioPagina(paginator)">
+                        <a class="page-link" (click)="!page['active'] && paginator.setCurrentPage(page['number'])">
+                            <span class="visually-hidden" *ngIf="!page['active']">{{ page['text'] }}</span>
+                            <span class="visually-hidden" *ngIf="page['active']">{{ page['text'] }}</span>
+                        </a>
+                    </li>
+                    <li [ngClass]="{disabled: paginator.currentPage === paginator.lastPage}">
+                        <a style="padding: 0px; margin: 0px;border-radius: 5px;" (click)="paginator.toNextPage(); nextPage();">
+                            <mat-icon>navigate_next</mat-icon>
+                        </a>
+                    </li>
+                </ul>
+            </ng-container>
+        </nav>
+    </div>
 </section>

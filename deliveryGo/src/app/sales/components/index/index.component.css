@@ -1,29 +1,30 @@
-h2 {
-    color: #00C354;
-    margin-bottom: 10px;
+.description {
+    font-size: 16px;
+    font-family: 'montserrat-med';
 }
 
-::ng-deep .mat-form-field-outline {
+:host ::ng-deep .mat-form-field-outline {
     border: 1px solid #00C354 !important;
     border-radius: 100px;
 }
 
-::ng-deep .mat-form-field-outline-start {
+:host ::ng-deep .mat-form-field-outline-start {
     border: 0px solid transparent !important;
     min-width: 28px !important;
 }
 
-::ng-deep .mat-form-field-outline-end {
+:host ::ng-deep .mat-form-field-outline-end {
     border: 0px solid transparent !important;
     border-radius: 0 28px 28px 0 !important;
 }
 
-::ng-deep .mat-form-field-flex {
+:host ::ng-deep .mat-form-field-flex {
     height: 35.88px;
     align-items: center !important;
 }
 
 .mat-form-field {
+    font-size: 14px;
     min-width: 150px;
     padding-top: 20px;
 }
@@ -42,12 +43,16 @@ table {
     width: 100%;
 }
 
+td {
+    font-size: 12px !important;
+}
+
 th.mat-sort-header-sorted {
     color: black;
 }
 
 .mat-header-cell {
-    font-size: 14px;
+    font-size: 13px;
     color: black;
 }
 
@@ -72,6 +77,16 @@ th.mat-sort-header-sorted {
     background-color: white;
     color: black;
     border: 1px solid #000000 !important;
+}
+
+.liquidado {
+    color: #00C354;
+    font-weight: 700;
+}
+
+.denegado {
+    color: #FF544A;
+    font-weight: 700;
 }
 
 .pagination {

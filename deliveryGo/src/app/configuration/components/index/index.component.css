@@ -24,3 +24,7 @@ button {
     color: white;
     border-radius: 28px !important;
 }
+
+.section-title {
+    padding-bottom: 50px;
+}

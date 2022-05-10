@@ -69,8 +69,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
@@ -155,7 +154,6 @@ export class IndexComponent implements OnInit, AfterViewInit {
   }
 
   cambioPagina(paginator: any) {
-    
   }
 
   nextPage() {

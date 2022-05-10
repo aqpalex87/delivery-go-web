@@ -21,8 +21,12 @@ export class LoginComponent implements OnInit {
   }
 
   ingresar() {
-    //console.log(this.form.value);
+    //implementación del acceso al sistema
     this.router.navigate(['home/index']);
+  }
+
+  recoveryPassword(){
+    //recuperacion de contraseña
   }
 
 }
