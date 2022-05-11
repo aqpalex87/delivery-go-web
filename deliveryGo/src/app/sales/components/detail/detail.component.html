@@ -7,7 +7,7 @@
 <br>
 <br>
 <br>
-<section fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap.xs="200px" fxLayoutGap.sm="200px">
+<section fxLayout.xs="column" fxLayout.sm="column" fxLayout.md="column" fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap.xs="20px" fxLayoutGap.sm="20px" fxLayoutGap.md="20px" fxLayout.lg="20px">
     <section fxLayout="row" fxLayoutGap="40px">
         <mat-icon class="icon">local_atm</mat-icon>
         <section fxLayout="column">
@@ -15,29 +15,29 @@
             <span class="head">101.60</span>
         </section>
     </section>
-    <section class="border-section" fxLayout="row" fxLayoutGap="40px">
+    <section ngClass.lg="border-section" ngClass.xl="border-section" fxLayout="row" fxLayoutGap="40px">
         <mat-icon class="icon">calendar_month</mat-icon>
         <section fxLayout="column">
             <h5 class="head-title">Fecha de Transacción</h5>
             <span class="head">22/04/2022 - 23:16:44</span>
         </section>
     </section>
-    <section class="border-section" fxLayout="row" fxLayoutGap="40px">
+    <section ngClass.lg="border-section" ngClass.xl="border-section" fxLayout="row" fxLayoutGap="40px">
         <mat-icon class="icon">laptop</mat-icon>
         <section fxLayout="column">
             <h5 class="head-title">Canal</h5>
             <span class="head">Web</span>
         </section>
     </section>
-    <section class="border-section" fxLayout="row" fxLayoutGap="40px">
+    <section ngClass.lg="border-section" ngClass.xl="border-section" fxLayout="row" fxLayoutGap="40px">
         <img src="./assets/img/visa.svg" alt="visa">
         <section fxLayout="column">
             <h5 class="head-title">Tarjeta</h5>
             <span class="head">428082*********0016</span>
         </section>
     </section>
-    <section class="border-section" fxLayout="row" fxLayoutGap="10px">
-        <span class="span-operation">Transacción 995221127674867 - </span>
+    <section ngClass.lg="border-section" ngClass.xl="border-section" fxLayout="row" fxLayoutGap="10px">
+        <h5 class="span-operation">Transacción 995221127674867 - </h5>
         <span class="span-status" [ngStyle]="true ? { 'color': '#00C354'} : {'color': '#FF544A'}">Liquidado</span>
     </section>
 </section>
