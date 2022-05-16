@@ -3,9 +3,9 @@
 }
 
 mat-toolbar {
-    font-family: Roboto;
+    font-family: 'montserrat-reg';
     background-color: #0000;
-    height: 70px;
+    height: 68px;
     position: -webkit-sticky;
     z-index: 1000;
 }

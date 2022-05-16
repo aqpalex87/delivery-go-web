@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ResponseData } from 'src/app/shared/interface/response';
+import { DataService } from 'src/app/shared/service/data.service';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  id: number = this.dataSvc.getDni();
+  listCommerces: any[] = [];
 
-  ngOnInit(): void {
+  constructor(private router: Router
+    , private dataSvc: DataService) { }
+
+  ngOnInit() {
+    this.dataSvc.getCommerces(this.id).subscribe((response: ResponseData) => {
+      if (response.success) {
+        this.listCommerces = response.data;
+      }
+    });
   }
 
+  createCommerce() {
+    //crear comercio
+  }
+
+  getIntoCommerce(idCommerce:number) {
+    //ingresar al comercio
+    this.router.navigate(['sales/index',idCommerce]);
+  }
 }

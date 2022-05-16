@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface Historial {
   estado: string;
@@ -12,8 +13,8 @@ export interface Historial {
 }
 
 const data: Historial[] = [
-  { estado: 'Liquidado', fechaEvento: new Date(), cliente:'Mariangela Pacheco', montoTransaccion: 101.60 },
-  { estado: 'Autorizado', fechaEvento: new Date(), cliente:'Mariangela Pacheco', montoTransaccion: 101.60 }
+  { estado: 'Liquidado', fechaEvento: new Date(), cliente: 'Mariangela Pacheco', montoTransaccion: 101.60 },
+  { estado: 'Autorizado', fechaEvento: new Date(), cliente: 'Mariangela Pacheco', montoTransaccion: 101.60 }
 ]
 @Component({
   selector: 'app-detail',
@@ -31,9 +32,21 @@ export class DetailComponent implements OnInit, AfterViewInit {
   currentPage = 1;
   itemsPerPage = 10;
 
-  constructor(private _liveAnnouncer: LiveAnnouncer) { }
+  idCommerce: number;
+  nroPedido: number;
 
-  ngOnInit(): void {}
+  constructor(private _liveAnnouncer: LiveAnnouncer, private activatedRoute: ActivatedRoute, private router: Router) { }
+
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe((parameters: any) => {
+      this.idCommerce = parameters.idCommerce;
+      this.nroPedido = parameters.nroPedido;
+    });
+  }
+
+  back() {
+    this.router.navigate(['sales/index', this.idCommerce]);
+  }
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;

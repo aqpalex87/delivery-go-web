@@ -9,6 +9,8 @@ mat-sidenav-content {
 
 mat-sidenav {
     width: 299px;
+    height: 1260px;
+    overflow: auto !important;
 }
 
 a {

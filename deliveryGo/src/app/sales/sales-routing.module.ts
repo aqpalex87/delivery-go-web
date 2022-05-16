@@ -10,11 +10,11 @@ const routes: Routes = [
     component: TemplateComponent,
     children: [
       {
-        path: 'index',
+        path: 'index/:idCommerce',
         component: IndexComponent,
       },
       {
-        path: 'detail/:nroPedido',
+        path: 'detail/:idCommerce/:nroPedido',
         component: DetailComponent,
       },
       {

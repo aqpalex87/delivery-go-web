@@ -3,12 +3,10 @@
 <mat-sidenav-container>
     <mat-sidenav [(opened)]="opened" mode="side">
         <mat-divider></mat-divider>
-        <br>
         <section fxLayoutAlign="center center">
-            <img style="padding: 10px;" src="./assets/img/delivery_go.png" width="50%" alt="logo_minedu">
+            <img style="padding: 10px;margin-top: 25px;" src="./assets/img/delivery_go.png" height="64px" alt="logo_minedu">
         </section>
-        <br>
-        <mat-list style="height: 72%;">
+        <mat-list style="height: 55%;">
             <mat-list-item>
                 <a [routerLink]="['/sales']" fxLayout="row wrap" fxLayoutAlign="center center">
                     <mat-icon mat-list-icon routerLinkActive="icon">shopping_cart</mat-icon>
@@ -24,7 +22,7 @@
         </mat-list>
         <mat-list>
             <mat-list-item fxLayoutAlign="end">
-                <a [routerLink]="['/']" fxLayout="row wrap" fxLayoutAlign="center center">
+                <a [routerLink]="['/']" fxLayout="row wrap" fxLayoutAlign="center center" (click)="logout()">
                     <mat-icon mat-list-icon routerLinkActive="icon">logout</mat-icon>
                     <h5>Cerrar sesión</h5>
                 </a>

@@ -1,112 +1,137 @@
-import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { MatSort, Sort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as XLSX from 'xlsx';
 import { FormBuilder, FormGroup } from '@angular/forms';
-export interface Ventas {
-  nroPedido: number;
-  cliente: string;
-  moneda: string;
-  importePedido: number;
-  descuentoAplicado: number;
-  importePuntos: number;
-  marca: string;
-  fechaTransaccion: Date;
-  fechaLiquidacion: Date;
-  estado: string;
-}
-
-const data: Ventas[] = [
-  { nroPedido: 4566387402, cliente: 'Mariangela Pacheco', moneda: 'PEN', importePedido: 101.60, descuentoAplicado: 101.60, importePuntos: 0.00, marca: 'Visa', fechaTransaccion: new Date(), fechaLiquidacion: new Date(), estado: 'Liquidado' },
-  { nroPedido: 4566387402, cliente: 'Erick Arrasco Guevara', moneda: 'PEN', importePedido: 101.60, descuentoAplicado: 101.60, importePuntos: 0.00, marca: 'Visa', fechaTransaccion: new Date(), fechaLiquidacion: new Date(), estado: 'Liquidado' },
-  { nroPedido: 4566387402, cliente: 'Daniel Torres Claros', moneda: 'PEN', importePedido: 101.60, descuentoAplicado: 101.60, importePuntos: 0.00, marca: 'Visa', fechaTransaccion: new Date(), fechaLiquidacion: new Date(), estado: 'Liquidado' },
-  { nroPedido: 4566387402, cliente: 'Juan Leyva Penny', moneda: 'PEN', importePedido: 101.60, descuentoAplicado: 101.60, importePuntos: 0.00, marca: 'Visa', fechaTransaccion: new Date(), fechaLiquidacion: new Date(), estado: 'Denegado' },
-  { nroPedido: 4566387402, cliente: 'Mauricio Martin Martin', moneda: 'PEN', importePedido: 101.60, descuentoAplicado: 101.60, importePuntos: 0.00, marca: 'Visa', fechaTransaccion: new Date(), fechaLiquidacion: new Date(), estado: 'Denegado' },
-  { nroPedido: 4566387402, cliente: 'Raul Cahuapoma', moneda: 'PEN', importePedido: 101.60, descuentoAplicado: 101.60, importePuntos: 0.00, marca: 'Visa', fechaTransaccion: new Date(), fechaLiquidacion: new Date(), estado: 'Denegado' },
-  { nroPedido: 4566387402, cliente: 'Maria Torres Chilca', moneda: 'PEN', importePedido: 101.60, descuentoAplicado: 101.60, importePuntos: 0.00, marca: 'Visa', fechaTransaccion: new Date(), fechaLiquidacion: new Date(), estado: 'Liquidado' },
-  { nroPedido: 4566387402, cliente: 'Estela Lopez Doria', moneda: 'PEN', importePedido: 101.60, descuentoAplicado: 101.60, importePuntos: 0.00, marca: 'Visa', fechaTransaccion: new Date(), fechaLiquidacion: new Date(), estado: 'Liquidado' },
-  { nroPedido: 4566387402, cliente: 'Carla Ochoa Torres', moneda: 'PEN', importePedido: 101.60, descuentoAplicado: 101.60, importePuntos: 0.00, marca: 'Visa', fechaTransaccion: new Date(), fechaLiquidacion: new Date(), estado: 'Liquidado' },
-  { nroPedido: 4566387402, cliente: 'Julio Loo Perez', moneda: 'PEN', importePedido: 101.60, descuentoAplicado: 101.60, importePuntos: 0.00, marca: 'Visa', fechaTransaccion: new Date(), fechaLiquidacion: new Date(), estado: 'Liquidado' },
-  { nroPedido: 4566387402, cliente: 'Mariangela Pacheco', moneda: 'PEN', importePedido: 101.60, descuentoAplicado: 101.60, importePuntos: 0.00, marca: 'Visa', fechaTransaccion: new Date(), fechaLiquidacion: new Date(), estado: 'Liquidado' },
-  { nroPedido: 4566387402, cliente: 'Erick Arrasco Guevara', moneda: 'PEN', importePedido: 101.60, descuentoAplicado: 101.60, importePuntos: 0.00, marca: 'Visa', fechaTransaccion: new Date(), fechaLiquidacion: new Date(), estado: 'Liquidado' },
-  { nroPedido: 4566387402, cliente: 'Daniel Torres Claros', moneda: 'PEN', importePedido: 101.60, descuentoAplicado: 101.60, importePuntos: 0.00, marca: 'Visa', fechaTransaccion: new Date(), fechaLiquidacion: new Date(), estado: 'Liquidado' },
-  { nroPedido: 4566387402, cliente: 'Juan Leyva Penny', moneda: 'PEN', importePedido: 101.60, descuentoAplicado: 101.60, importePuntos: 0.00, marca: 'Visa', fechaTransaccion: new Date(), fechaLiquidacion: new Date(), estado: 'Liquidado' },
-  { nroPedido: 4566387402, cliente: 'Mauricio Martin Martin', moneda: 'PEN', importePedido: 101.60, descuentoAplicado: 101.60, importePuntos: 0.00, marca: 'Visa', fechaTransaccion: new Date(), fechaLiquidacion: new Date(), estado: 'Liquidado' },
-  { nroPedido: 4566387402, cliente: 'Raul Cahuapoma', moneda: 'PEN', importePedido: 101.60, descuentoAplicado: 101.60, importePuntos: 0.00, marca: 'Visa', fechaTransaccion: new Date(), fechaLiquidacion: new Date(), estado: 'Liquidado' },
-]
-
+import { DataService } from 'src/app/shared/service/data.service';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
+
 export class IndexComponent implements OnInit, AfterViewInit {
+  @ViewChild('table') myTable: MatTable<any>;
 
-  displayedColumns: string[] = ['select', 'nroPedido', 'cliente', 'moneda', 'importePedido', 'descuentoAplicado', 'importePuntos', 'marca', 'fechaTransaccion', 'fechaLiquidacion', 'estado', 'acciones'];
-  dataSource = new MatTableDataSource<Ventas>(data);
-  selection = new SelectionModel<Ventas>(true, []);
-  resultsLength = 16;
+  displayedColumns: string[] = [];
+  data: any[] = [];
+  resultsLength = 0;
 
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  sizes: any[] = ['10', '15', '25', '50', '100'];
 
-  p: number = 1;
-  collection: Ventas[] = data;
-  form: FormGroup;
+  selection = new SelectionModel<any>(true, []);
 
-  currentPage = 1;
-  itemsPerPage = 10;
+  formFilterDate: FormGroup;
+  formFilter: FormGroup;
 
-  constructor(private _liveAnnouncer: LiveAnnouncer, private router: Router, private _formBuilder: FormBuilder) {
-    this.form = this._formBuilder.group({
+  currentPage: number;
+  itemsPerPage: number;
+
+  idCommerce: number;
+
+  constructor(private router: Router, private _formBuilder: FormBuilder, private activatedRoute: ActivatedRoute, private dataSvc: DataService) {
+    this.formFilterDate = this._formBuilder.group({
       hoy: [true],
       estaSemana: [false],
-      esteMes: [false]
+      esteMes: [false],
+      desde: [new Date().toISOString()],
+      hasta: [new Date().toISOString()]
+    });
+
+    this.formFilter = this._formBuilder.group({
+      idCommerce: [''],
+      page: [''],
+      sort: [''],
+      order: [''],
+      length: [''],
+      nroPedido: [''],
+      cliente: [''],
+      moneda: [''],
+      importePedido: [''],
+      marca: [''],
+      fechaTransaccion: [''],
+      fechaLiquidacion: [''],
+      estado: ['']
     });
   }
 
-  ngOnInit(): void {}
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe((parameters: any) => {
+      this.idCommerce = parameters.idCommerce;
+    });
+
+    this.sort.active = 'nroPedido';
+    this.formFilter.controls.page.setValue(1, { emitEvent: false });
+    this.paginator.pageSize = 10;
+    this.itemsPerPage = 10;
+    this.formFilter.controls.length.setValue('10', { emitEvent: false });
+    this.formFilter.controls.length.valueChanges.subscribe((value) => {
+      this.itemsPerPage = value;
+      this.paginator.pageSize = value;
+      this.formFilter.controls.length.setValue(value.toString(), { emitEvent: false });
+      this.cargarListado(false);
+    }
+    );
+    this.currentPage = 1;
+    this.cargarListado(true);
+  }
+
+  cargarListado(reset: boolean) {
+    //console.log(this.formFilter.value);
+    this.resultsLength = 0;
+    this.displayedColumns = [];
+    this.data = [];
+    if (reset) {
+      this.paginator.pageIndex = 0;
+    }
+    this.formFilter.controls.idCommerce.setValue(this.idCommerce);
+    this.formFilter.controls.sort.setValue(this.sort.active);
+    this.formFilter.controls.order.setValue(this.sort.direction);
+    this.dataSvc.getData(this.formFilter.value).subscribe((response: any) => {
+      this.displayedColumns = [
+        'select',
+        'nroPedido',
+        'cliente',
+        'moneda',
+        'importePedido',
+        'descuentoAplicado',
+        'importePuntos',
+        'marca',
+        'fechaTransaccion',
+        'fechaLiquidacion',
+        'estado',
+        'acciones'];
+      this.data = response['data'];
+      this.resultsLength = response['total'];
+    });
+  }
 
   ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-    this.paginator._intl.itemsPerPageLabel = 'Elementos por página';
+    this.paginator._intl.itemsPerPageLabel = 'items por página';
     this.paginator._intl.nextPageLabel = 'Página Siguiente';
     this.paginator._intl.previousPageLabel = 'Página Anterior';
     this.paginator._intl.firstPageLabel = 'Primera Página';
     this.paginator._intl.lastPageLabel = 'Última página';
-    this.paginator.page.subscribe(() => { });
-    this.sort.sortChange.subscribe(() => { });
-  }
-
-  announceSortChange(sortState: Sort) {
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
-    }
+    this.paginator.page.subscribe(() => this.cargarListado(false));
+    this.sort.sortChange.subscribe(() => {
+      this.paginator.pageIndex = 0;
+      this.cargarListado(false);
+    });
   }
 
   isAllSelected() {
     const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
+    const numRows = this.resultsLength;
     return numSelected === numRows;
   }
 
-  masterToggle() {
-    if (this.isAllSelected()) {
-      this.selection.clear();
-      return;
-    }
-
-    this.selection.select(...this.dataSource.data);
-  }
-
-  checkboxLabel(row?: Ventas): string {
+  checkboxLabel(row?: any): string {
     if (!row) {
       return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
     }
@@ -116,51 +141,66 @@ export class IndexComponent implements OnInit, AfterViewInit {
   viewDetail(row: any) {
     this.router.navigate([
       '/sales/detail',
-      row.nroPedido,
+      this.idCommerce, row.nroPedido
     ]);
   }
 
   activeButtonFilter(description: string) {
     switch (description) {
       case 'day': {
-        this.form.controls.hoy.setValue(true);
-        this.form.controls.estaSemana.setValue(false);
-        this.form.controls.esteMes.setValue(false);
+        this.formFilterDate.controls.hoy.setValue(true);
+        this.formFilterDate.controls.estaSemana.setValue(false);
+        this.formFilterDate.controls.esteMes.setValue(false);
         break;
       }
       case 'week': {
-        this.form.controls.hoy.setValue(false);
-        this.form.controls.estaSemana.setValue(true);
-        this.form.controls.esteMes.setValue(false);
+        this.formFilterDate.controls.hoy.setValue(false);
+        this.formFilterDate.controls.estaSemana.setValue(true);
+        this.formFilterDate.controls.esteMes.setValue(false);
         break;
       }
       case 'month': {
-        this.form.controls.hoy.setValue(false);
-        this.form.controls.estaSemana.setValue(false);
-        this.form.controls.esteMes.setValue(true);
+        this.formFilterDate.controls.hoy.setValue(false);
+        this.formFilterDate.controls.estaSemana.setValue(false);
+        this.formFilterDate.controls.esteMes.setValue(true);
       }
     }
   }
 
-  export() {
-    this.convertDataToExcel(data);
+  searchByDateFilter() {
+    //console.log(this.formFilterDate.value);
   }
 
-  convertDataToExcel(dataExport: Ventas[]) {
+  searchByFilters() {
+    //console.log(this.formFilter.value);
+  }
+
+  export() {
+    //this.convertDataToExcel(data);
+  }
+
+  convertDataToExcel(dataExport: any[]) {
     const workbook: XLSX.WorkBook = XLSX.utils.book_new();
     const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(dataExport);
     XLSX.utils.book_append_sheet(workbook, worksheet, 'movimientos');
     XLSX.writeFile(workbook, 'export_file.xlsx');
   }
 
-  cambioPagina(paginator: any) {
+  cambioPagina(pagination: any) {
+    this.formFilter.controls.page.setValue(pagination.currentPage);
+    this.currentPage = pagination.currentPage;
+    this.cargarListado(false);
   }
 
-  nextPage() {
-    this.paginator.nextPage();
+  nextPage(pagination: any) {
+    this.formFilter.controls.page.setValue(pagination.currentPage);
+    this.currentPage = pagination.currentPage;
+    this.cargarListado(false);
   }
 
-  previousPage() {
-    this.paginator.previousPage();
+  previousPage(pagination: any) {
+    this.formFilter.controls.page.setValue(pagination.currentPage);
+    this.currentPage = pagination.currentPage;
+    this.cargarListado(false);
   }
 }

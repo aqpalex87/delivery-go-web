@@ -10,14 +10,16 @@
             <br>
             <h3 style="text-align: center;">¡ Bienvenido !</h3>
             <br>
-            <button mat-raised-button type="submit" style="background-color: #F1FFF7;border: 2px solid #00C354;" [routerLink]="['/sales/index']">
-                    <span style="color: #00C354; ">Delivery ISM Go SAC</span>
+            <section *ngFor="let element of listCommerces">
+                <button mat-raised-button type="submit" style="background-color: #F1FFF7;border: 2px solid #00C354;" (click)="getIntoCommerce(element.idCommerce)">
+                    <span style="color: #00C354; ">{{element.nameCommerce}}</span>
                 </button>
-            <br>
-            <br>
-            <button mat-raised-button type="submit" style="background-color: #00C455; color: white;">
+                <br>
+                <br>
+            </section>
+            <button mat-raised-button type="submit" style="background-color: #00C455; color: white;" (click)="createCommerce()">
                     <span style="color: white; ">Crear comercio</span>
-                </button>
+            </button>
         </div>
         <br>
         <br>

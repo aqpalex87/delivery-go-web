@@ -3,6 +3,16 @@
     font-family: 'montserrat-med';
 }
 
+.showMessage {
+    font-size: 16px;
+    font-family: 'montserrat-med';
+}
+
+.view-elements {
+    font-size: 14px;
+    font-family: 'montserrat-med';
+}
+
 :host ::ng-deep .mat-form-field-outline {
     border: 1px solid #00C354 !important;
     border-radius: 100px;
