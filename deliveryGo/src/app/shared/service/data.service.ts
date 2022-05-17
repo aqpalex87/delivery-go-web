@@ -14,6 +14,12 @@ export class DataService {
         return this.http.get(_dataJson);
     }
 
+    getDataOrder(filters: any) {
+        //return this.http.get(environment.apiURL + this.controller + '/GetDataofOrder',{ params: filtros });
+        let _dataorderJson = 'assets/json/dataorder.json';
+        return this.http.get(_dataorderJson);
+    }
+
     getCommerces(id: number) {
         let _commercesJson = 'assets/json/commerces.json';
         return this.http.get(_commercesJson);
