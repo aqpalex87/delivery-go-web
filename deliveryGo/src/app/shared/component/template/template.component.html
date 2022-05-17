@@ -1,12 +1,12 @@
 <app-header (verMenuLateral)="opened = $event"></app-header>
 <mat-divider></mat-divider>
 <mat-sidenav-container>
-    <mat-sidenav [(opened)]="opened" mode="side">
+    <mat-sidenav [(opened)]="opened" mode="side" style="height: 90%;">
         <mat-divider></mat-divider>
         <section fxLayoutAlign="center center">
             <img style="padding: 10px;margin-top: 25px;" src="./assets/img/delivery_go.png" height="64px" alt="logo_minedu">
         </section>
-        <mat-list style="height: 55%;">
+        <mat-list style="height: 80%;">
             <mat-list-item>
                 <a [routerLink]="['/sales']" fxLayout="row wrap" fxLayoutAlign="center center">
                     <mat-icon mat-list-icon routerLinkActive="icon">shopping_cart</mat-icon>
