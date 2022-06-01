@@ -6,15 +6,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Output() verMenuLateral: EventEmitter<boolean> = new EventEmitter();
-  
+ 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  verMenu() {
-    this.verMenuLateral.emit(true);
   }
 
 }

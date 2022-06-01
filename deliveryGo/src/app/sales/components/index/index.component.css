@@ -13,17 +13,37 @@
     font-family: 'montserrat-med';
 }
 
-:host ::ng-deep .mat-form-field-outline {
+.view-icon {
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.view-span {
+    font-size: 12px;
+    margin-top: -8px;
+}
+
+.button-export {
+    background-color: #0085FF;
+    color: white;
+}
+
+.button-view {
+    background-color: #0085FF;
+    color: white;
+}
+
+::ng-deep .mat-form-field-outline {
     border: 1px solid #00C354 !important;
     border-radius: 100px;
 }
 
-:host ::ng-deep .mat-form-field-outline-start {
+::ng-deep .mat-form-field-outline-start {
     border: 0px solid transparent !important;
     min-width: 28px !important;
 }
 
-:host ::ng-deep .mat-form-field-outline-end {
+::ng-deep .mat-form-field-outline-end {
     border: 0px solid transparent !important;
     border-radius: 0 28px 28px 0 !important;
 }
@@ -31,6 +51,69 @@
 :host ::ng-deep .mat-form-field-flex {
     height: 35.88px;
     align-items: center !important;
+}
+
+:host ::ng-deep .mat-form-field-infix {
+    padding: 10px 0;
+    border-top: 5px solid transparent;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-prefix,
+.mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: 1.5px !important;
+}
+
+.mi-input {
+    box-sizing: border-box;
+    width: 165px;
+    height: 35px;
+    left: 1108px;
+    top: 260px;
+    background: #FFFFFF;
+    border: 1px solid #00C354;
+    border-radius: 100px;
+    padding-left: 15px;
+}
+
+.mi-input::placeholder {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14.0021px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    color: #A2A2A2;
+}
+
+.mat-option {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14.0021px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    color: #A2A2A2;
+}
+
+mat-label {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14.0021px;
+    color: #A2A2A2;
+}
+
+option {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14.0021px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    color: #A2A2A2;
 }
 
 .mat-form-field {
@@ -64,6 +147,10 @@ th.mat-sort-header-sorted {
 .mat-header-cell {
     font-size: 13px;
     color: black;
+}
+
+td.mat-cell {
+    padding: 0px 15px 0px 15px !important;
 }
 
 .filter {

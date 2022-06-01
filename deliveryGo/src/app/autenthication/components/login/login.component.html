@@ -1,15 +1,17 @@
-<section fxLayout="column" fxLayoutAlign="center center" style="height: 100%;">
-    <br>
+<section fxLayoutAlign="end none">
+    <img src="./assets/img/img_login.png" width="220px" height="330px" style="opacity: 60%; position: absolute; z-index: -1;">
+</section>
+<section fxLayoutAlign="center center" style="height: 100%;">
     <div style="width: 360px; background-color: white;">
         <br>
         <br>
         <div style="width: 439px; margin: auto;">
             <section fxLayoutAlign="center center">
-                <img src="./assets/img/delivery_go.png" width="50%" alt="logo_minedu">
+                <img src="./assets/img/delivery_go.png" width="246px" height="111px">
             </section>
             <br>
             <br>
-            <h3 style="text-align: center;">¡ Bienvenido !</h3>
+            <h3 style="text-align: center;">¡Bienvenido!</h3>
             <form [formGroup]="form" fxLayout="column" (ngSubmit)="ingresar();">
                 <br>
                 <mat-form-field fxFlexFill appearance="outline">
@@ -25,9 +27,8 @@
                 </mat-checkbox>
                 <br>
                 <button mat-raised-button type="submit" style="background-color: #00C455; color: white;">
-                    <mat-icon matPrefix style="color: white; ">login</mat-icon>&nbsp;&nbsp;
-                    <span style="color: white; ">INGRESAR</span>
-                </button>
+                        <span style="color: white; ">Ingresar</span>
+                    </button>
                 <br>
                 <br>
                 <h5 style="text-align:center;text-decoration: underline;cursor: pointer;"><a style="color: #00C455;" (click)="recoveryPassword()">Olvide contraseña</a>

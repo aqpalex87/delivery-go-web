@@ -10,11 +10,11 @@ const routes: Routes = [
     component: TemplateComponent,
     children: [
       {
-        path: 'v-config',
+        path: 'v-config/:idCommerce',
         component: IndexComponent,
       },
       {
-        path: 'edit-config',
+        path: 'edit-config/:idCommerce',
         component: EditComponent
       },
       {

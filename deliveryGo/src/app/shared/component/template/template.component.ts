@@ -10,10 +10,11 @@ export class TemplateComponent implements OnInit {
   opened = true;
   panelOpenState = false;
 
+  idCommerce = sessionStorage.getItem('idCommerce');
+
   constructor(private authSvc: AuthenticationService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   logout() {
     this.authSvc.logout();

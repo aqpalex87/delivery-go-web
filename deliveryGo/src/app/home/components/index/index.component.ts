@@ -30,6 +30,7 @@ export class IndexComponent implements OnInit {
 
   getIntoCommerce(idCommerce:number) {
     //ingresar al comercio
+    sessionStorage.setItem('idCommerce', idCommerce.toString());
     this.router.navigate(['sales/index',idCommerce]);
   }
 }

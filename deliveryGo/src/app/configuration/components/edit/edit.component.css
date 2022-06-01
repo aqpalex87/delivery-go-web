@@ -25,17 +25,17 @@ button {
     border-radius: 28px !important;
 }
 
-:host ::ng-deep .mat-form-field-outline {
+::ng-deep .mat-form-field-outline {
     border: 1px solid #00C354 !important;
     border-radius: 100px;
 }
 
-:host ::ng-deep .mat-form-field-outline-start {
+::ng-deep .mat-form-field-outline-start {
     border: 0px solid transparent !important;
     min-width: 28px !important;
 }
 
-:host ::ng-deep .mat-form-field-outline-end {
+::ng-deep .mat-form-field-outline-end {
     border: 0px solid transparent !important;
     border-radius: 0 28px 28px 0 !important;
 }
@@ -45,13 +45,20 @@ button {
     align-items: center !important;
 }
 
-:host ::ng-deep .mat-form-field .mat-form-field-wrapper {
-    padding-bottom: 0px !important;
+:host ::ng-deep .mat-form-field-infix {
+    padding: 10px 0;
+    border-top: 5px solid transparent;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-prefix,
+.mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: 1.5px !important;
 }
 
 .mat-form-field {
     font-size: 14px;
     min-width: 150px;
+    margin-bottom: -20px !important;
 }
 
 .section-title {

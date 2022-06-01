@@ -1,36 +1,36 @@
-<app-header (verMenuLateral)="opened = $event"></app-header>
+<app-header></app-header>
 <mat-divider></mat-divider>
 <mat-sidenav-container>
     <mat-sidenav [(opened)]="opened" mode="side" style="height: 90%;">
         <mat-divider></mat-divider>
         <section fxLayoutAlign="center center">
-            <img style="padding: 10px;margin-top: 25px;" src="./assets/img/delivery_go.png" height="64px" alt="logo_minedu">
+            <img class="logo" src="./assets/img/delivery_go.png" height="64px" alt="logo_minedu">
         </section>
-        <mat-list style="height: 80%;">
+        <mat-list style="margin-left: -16px;">
             <mat-list-item>
-                <a [routerLink]="['/sales']" fxLayout="row wrap" fxLayoutAlign="center center">
+                <a fxFlexFill [routerLink]="['/sales/index', this.idCommerce]" fxLayout="row wrap" fxLayoutAlign="start center" routerLinkActive="borde">
                     <mat-icon mat-list-icon routerLinkActive="icon">shopping_cart</mat-icon>
                     <h5 routerLinkActive="active">Ventas</h5>
                 </a>
             </mat-list-item>
             <mat-list-item>
-                <a [routerLink]="['/configuration']" fxLayout="row wrap" fxLayoutAlign="center center">
+                <a [routerLink]="['/configuration/v-config', this.idCommerce]" fxLayout="row wrap" fxLayoutAlign="center center" routerLinkActive="borde">
                     <mat-icon mat-list-icon routerLinkActive="icon">settings</mat-icon>
                     <h5 routerLinkActive="active">Configuraciones</h5>
                 </a>
             </mat-list-item>
         </mat-list>
-        <mat-list>
-            <mat-list-item fxLayoutAlign="end">
-                <a [routerLink]="['/']" fxLayout="row wrap" fxLayoutAlign="center center" (click)="logout()">
-                    <mat-icon mat-list-icon routerLinkActive="icon">logout</mat-icon>
-                    <h5>Cerrar sesión</h5>
+        <mat-list class="logout">
+            <mat-list-item>
+                <a fxFlexFill [routerLink]="['/']" fxLayoutAlign="end center" (click)="logout()">
+                    <img src="./assets/img/circle-arrow-left.svg">&nbsp;&nbsp;
+                    <span style="font-size: 20px; font-weight: bold;">Cerrar sesión</span>
                 </a>
             </mat-list-item>
         </mat-list>
     </mat-sidenav>
-    <mat-sidenav-content style="background-color: white;">
-        <div style="padding: 20px;padding-bottom: 200px;">
+    <mat-sidenav-content>
+        <div class="container">
             <router-outlet></router-outlet>
         </div>
     </mat-sidenav-content>

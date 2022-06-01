@@ -1,15 +1,9 @@
 {
     "success": true,
     "data": [{
-            "idUser": 88888888,
-            "idCommerce": 20104510212,
-            "nameCommerce": "Delivery ISM Go SAC"
-        },
-        {
-            "idUser": 88888888,
-            "idCommerce": 20104510212,
-            "nameCommerce": "Delivery ISM Go SAC II"
-        }
-    ],
+        "idUser": 88888888,
+        "idCommerce": 20104510212,
+        "nameCommerce": "Delivery ISM Go SAC"
+    }],
     "message": "list of commerce by user"
 }

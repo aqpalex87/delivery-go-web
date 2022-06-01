@@ -1,3 +1,6 @@
+<section fxLayoutAlign="end none">
+    <img src="./assets/img/img_login.png" width="220px" height="330px" style="opacity: 60%; position: absolute; z-index: -1;">
+</section>
 <section fxLayout="column" fxLayoutAlign="center center" style="height: 100%;">
     <br>
     <div style="width: 360px; background-color: white;">
@@ -8,10 +11,13 @@
                 <img src="./assets/img/delivery_go.png" width="50%" alt="logo_minedu">
             </section>
             <br>
-            <h3 style="text-align: center;">¡ Bienvenido !</h3>
+            <br>
+            <h3 style="text-align: center;">¡Bienvenido!</h3>
+            <br>
             <br>
             <section *ngFor="let element of listCommerces">
                 <button mat-raised-button type="submit" style="background-color: #F1FFF7;border: 2px solid #00C354;" (click)="getIntoCommerce(element.idCommerce)">
+                    <mat-icon class="icon">account_circle</mat-icon>
                     <span style="color: #00C354; ">{{element.nameCommerce}}</span>
                 </button>
                 <br>

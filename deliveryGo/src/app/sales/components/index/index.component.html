@@ -38,12 +38,8 @@
 <br>
 <form [formGroup]="formFilter">
     <section fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="space-between center">
-        <mat-form-field fxFlex="10" appearance="outline">
-            <input matInput placeholder="Nro Pedido" autocomplete="off" formArrayName="nroPedido">
-        </mat-form-field>
-        <mat-form-field fxFlex="10" appearance="outline">
-            <input matInput placeholder="Cliente" autocomplete="off" formControlName="cliente">
-        </mat-form-field>
+        <input class="mi-input" type="text" placeholder="Nro pedido" formControlName="nroPedido">
+        <input class="mi-input" placeholder="Cliente" autocomplete="off" formControlName="cliente">
         <mat-form-field fxFlex="10" appearance="outline">
             <mat-label>Moneda</mat-label>
             <mat-select formControlName="moneda">
@@ -51,9 +47,7 @@
                 <mat-option>USD</mat-option>
             </mat-select>
         </mat-form-field>
-        <mat-form-field fxFlex="10" appearance="outline">
-            <input matInput placeholder="Importe pedido" autocomplete="off" formControlName="importePedido">
-        </mat-form-field>
+        <input class="mi-input" placeholder="Importe pedido" autocomplete="off" formControlName="importePedido">
         <mat-form-field fxFlex="10" appearance="outline">
             <mat-label>Marca</mat-label>
             <mat-select formControlName="marca">
@@ -91,7 +85,7 @@
         <section>
             <span class="showMessage">Mostrando {{resultsLength==0?0:((currentPage*itemsPerPage)-itemsPerPage)+1}} a {{currentPage*itemsPerPage>resultsLength?resultsLength:currentPage*itemsPerPage}} de {{resultsLength}} registros</span>
         </section>
-        <button mat-raised-button style="background-color: #0085FF; color: white;" (click)="export()">
+        <button class="button-export" mat-raised-button (click)="export()">
             <mat-icon>download</mat-icon>Exportar
         </button>
     </section>
@@ -173,7 +167,14 @@
             <ng-container matColumnDef="acciones">
                 <th class="table" mat-header-cell *matHeaderCellDef mat-sort-header></th>
                 <td mat-cell *matCellDef="let element">
-                    <button mat-raised-button type="button" style="background-color: #0085FF; color: white;" (click)="viewDetail(element)"><mat-icon>visibility</mat-icon>&nbsp;Ver</button>
+                    <section style="width: 53px; height: 20px;">
+                        <button class="button-view" fxFill mat-raised-button type="button" (click)="viewDetail(element)">
+                            <section fxLayout="row" fxLayoutAlign="center center">
+                                <mat-icon class="view-icon">visibility</mat-icon>
+                                <span class="view-span">&nbsp;ver</span>
+                            </section> 
+                        </button>
+                    </section>
                 </td>
             </ng-container>
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

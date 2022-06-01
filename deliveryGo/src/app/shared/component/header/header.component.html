@@ -1,8 +1,5 @@
 <mat-toolbar>
-    <span><strong>Delivery Go Pay</strong></span> &nbsp;&nbsp;
-    <button type="button" (click)="verMenu()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" style="margin-left: 150px;">
-        <mat-icon style="color: white;">menu</mat-icon>
-      </button>
+    <span class="span-toolbar"><strong>Delivery Go Pay</strong></span> &nbsp;&nbsp;
     <span class="example-spacer"></span>
     <section fxLayout="row" fxLayoutGap="40px">
         <mat-icon class="icon">person_outline</mat-icon>
@@ -11,7 +8,7 @@
             <span class="head">Lunes 7 de Septiembre</span>
         </section>
     </section>
-    <button type="button" mat-button [matMenuTriggerFor]="menu" style="margin-left: 120px;">
+    <button type="button" mat-button [matMenuTriggerFor]="menu">
         <mat-icon style="color: white;">account_circle</mat-icon>
     </button>
     <mat-menu #menu="matMenu">

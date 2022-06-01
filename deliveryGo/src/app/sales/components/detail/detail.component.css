@@ -37,6 +37,7 @@ h5 {
 .border-section {
     border-left: 1px solid #D4D4D4;
     padding-left: 20px;
+    margin-left: 20px;
     margin-top: 0px;
     padding-top: 0px;
 }
@@ -109,6 +110,20 @@ th.mat-sort-header-sorted {
 .mat-header-cell {
     font-size: 13px;
     color: black;
+}
+
+td.mat-cell {
+    padding: 0px 15px 0px 15px !important;
+}
+
+:host ::ng-deep .mat-form-field-infix {
+    padding: 10px 0;
+    border-top: 5px solid transparent;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-prefix,
+.mat-form-field-appearance-outline .mat-form-field-suffix {
+    top: 1.5px !important;
 }
 
 .filter {
